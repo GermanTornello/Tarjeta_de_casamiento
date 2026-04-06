@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background: #f8f5f2;
+}
+
+.hero {
+  height: 100vh;
+  background: url("fotocasamiento.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(0,0,0,0.4);
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 4em;
+}
+
+.section {
+  padding: 50px 20px;
+}
+
+#countdown {
+  font-size: 2em;
+  margin-top: 20px;
+}
+
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
