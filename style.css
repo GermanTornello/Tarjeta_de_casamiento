@@ -7,7 +7,7 @@ body {
 
 .hero {
   height: 100vh;
-  background: url("fondo.jpg") center/cover no-repeat;
+  background: url("fondo.jpeg") center/cover no-repeat;
   position: relative;
 }
 
