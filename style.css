@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background: #f8f5f2;
+   background: linear-gradient(to bottom, #f8f5f2, #eae3dc);
   text-align: center;
 }
 
@@ -105,8 +105,14 @@ h2 {
   color: white;
   text-decoration: none;
   border-radius: 30px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 .whatsapp {
   background: #25D366;
 }
+
