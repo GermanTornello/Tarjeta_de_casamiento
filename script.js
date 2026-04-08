@@ -1,7 +1,6 @@
 // ABRIR INVITACIÓN
 function abrirInvitacion() {
   document.getElementById("intro").style.display = "none";
-
   document.getElementById("musica").play();
 }
 
@@ -28,7 +27,8 @@ const sections = document.querySelectorAll(".section");
 window.addEventListener("scroll", () => {
   sections.forEach(sec => {
     const top = sec.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
+
+    if (top < window.innerHeight - 80) {
       sec.classList.add("show");
     }
   });

@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-   background: linear-gradient(to bottom, #f8f5f2, #eae3dc);
+  background: linear-gradient(to bottom, #f8f5f2, #eae3dc);
   text-align: center;
 }
 
@@ -18,14 +18,10 @@ body {
   z-index: 999;
 }
 
-.card {
-  text-align: center;
-}
-
 .card button {
   padding: 15px 30px;
+  border-radius: 30px;
   border: none;
-  background: white;
   cursor: pointer;
 }
 
@@ -33,35 +29,49 @@ body {
 .hero {
   height: 100vh;
   background: url("fondo.jpg") center/cover no-repeat;
+  display: flex;
 }
 
 .overlay {
-  height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+  margin: auto;
+  text-align: center;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  animation: fadeHero 2s ease;
+}
+
+.sub {
+  letter-spacing: 4px;
+  font-size: 0.7em;
+  opacity: 0.8;
 }
 
 h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 4em;
-  animation: fadeIn 2s ease;
+  margin: 10px 0;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+.fecha {
+  letter-spacing: 3px;
+  font-size: 0.9em;
+}
+
+@keyframes fadeHero {
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* SECCIONES */
 .section {
-  padding: 60px 20px;
+  margin: 40px 20px;
+  padding: 40px 25px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+
   opacity: 0;
-  transform: translateY(40px);
-  transition: 0.8s;
+  transform: translateY(60px);
+  transition: all 1.2s ease;
 }
 
 .section.show {
@@ -74,37 +84,35 @@ h2 {
   letter-spacing: 2px;
 }
 
+/* CONTADOR */
 #countdown {
-  font-size: 2em;
-  margin-top: 20px;
+  font-size: 1.8em;
+  letter-spacing: 2px;
+  margin-top: 15px;
 }
 
 /* GALERIA */
 .galeria {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
 .galeria img {
   width: 100%;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.galeria img:hover {
-  transform: scale(1.05);
+  border-radius: 15px;
 }
 
 /* BOTONES */
 .btn {
-  display: inline-block;
-  padding: 15px 25px;
-  margin: 10px;
+  display: block;
+  width: 80%;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 40px;
   background: black;
   color: white;
   text-decoration: none;
-  border-radius: 30px;
   transition: 0.3s;
 }
 
@@ -115,4 +123,3 @@ h2 {
 .whatsapp {
   background: #25D366;
 }
-
