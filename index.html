@@ -5,12 +5,22 @@
   <title>Gisella & Maciel</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- PORTADA -->
+<!-- PANTALLA INICIAL -->
+<div id="intro">
+  <div class="card">
+    <p>Tenés una invitación</p>
+    <button onclick="abrirInvitacion()">Abrir</button>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<div id="contenido">
+
+  <!-- HERO -->
   <section class="hero">
     <div class="overlay">
       <h1>Gisella & Maciel</h1>
@@ -30,24 +40,46 @@
     <p>📅 15 de Noviembre 2026</p>
     <p>🕒 20:00 hs</p>
     <p>📍 Salón Los Olivos, Mendoza</p>
+
+    <a class="btn" href="https://www.google.com/maps?q=Mendoza" target="_blank">
+      Cómo llegar
+    </a>
   </section>
 
-  <!-- MAPA -->
+  <!-- GALERÍA -->
   <section class="section">
-    <iframe src="https://www.google.com/maps?q=Mendoza&output=embed"></iframe>
+    <h2>Momentos</h2>
+    <div class="galeria">
+      <img src="foto1.jpg">
+      <img src="foto2.jpg">
+      <img src="foto3.jpg">
+    </div>
   </section>
 
   <!-- CONFIRMAR -->
   <section class="section">
     <h2>Confirmar asistencia</h2>
-    <a class="btn" href="https://forms.gle/TU_LINK" target="_blank">Confirmar</a>
+
+    <a class="btn" href="https://forms.gle/TU_LINK" target="_blank">
+      Confirmar
+    </a>
+
+    <a class="btn whatsapp" href="https://wa.me/549261XXXXXXX" target="_blank">
+      WhatsApp
+    </a>
   </section>
 
   <footer>
     <p>Te esperamos 💍</p>
   </footer>
 
-  <script src="script.js"></script>
+</div>
+
+<!-- MÚSICA -->
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
 </body>
 </html>
-<!-- cambio -->
