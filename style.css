@@ -123,3 +123,45 @@ h2 {
 .whatsapp {
   background: #25D366;
 }
+
+.ubicacion {
+  height: 100vh;
+  background: url("ubicacion.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+}
+
+.overlay-ubi {
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+
+  background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+}
+
+.titulo-ubi {
+  font-size: 2.5em;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.direccion {
+  font-size: 1.1em;
+  margin-bottom: 25px;
+}
+
+.btn-ubi {
+  display: inline-block;
+  padding: 12px 25px;
+  background: white;
+  color: black;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: 0.3s;
+}
+
+.btn-ubi:hover {
+  transform: scale(1.05);
+}
