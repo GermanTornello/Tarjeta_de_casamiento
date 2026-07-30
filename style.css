@@ -1016,11 +1016,24 @@ RESPONSIVE
 
     /* TITULOS */
 
-    .marco h2,
-    .contador h2,
-    .final h2{
-        font-size:42px;
-    }
+    /* TITULOS */
+
+.marco h2{
+
+    font-size:36px;
+
+    line-height:1.2;
+
+    word-break:break-word;
+
+}
+
+.contador h2,
+.final h2{
+
+    font-size:42px;
+
+}
 
     .final h3{
         font-size:40px;
