@@ -13,3 +13,12 @@ document.getElementById("btnInvitacion").addEventListener("click", () => {
     window.location.href = "invitacion.html";
 
 });
+
+function copiarAlias(){
+
+    const alias = document.getElementById("alias").innerText;
+
+    navigator.clipboard.writeText(alias);
+
+    alert("¡Alias copiado!");
+}

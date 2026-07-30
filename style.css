@@ -522,3 +522,439 @@ CONTADOR
     font-size:18px;
 
 }
+
+/*======================
+CEREMONIA
+=======================*/
+
+.ceremonia{
+
+    min-height:100vh;
+
+    background:#f7f3ed;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.info-evento{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+    margin:50px 0;
+
+}
+
+.item-evento{
+
+    width:220px;
+
+    background:#fff;
+
+    border:1px solid #dcc7a4;
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.icono{
+
+    font-size:36px;
+
+    margin-bottom:15px;
+
+}
+
+.item-evento h3{
+
+    font-family:'Cormorant Garamond',serif;
+
+    color:#b58b54;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+
+}
+
+.item-evento p{
+
+    color:#777;
+
+    line-height:1.6;
+
+    margin:0;
+
+}
+
+.btn-evento{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:16px 40px;
+
+    border:1px solid #c7a46d;
+
+    border-radius:40px;
+
+    color:#b58b54;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.btn-evento:hover{
+
+    background:#c7a46d;
+
+    color:#fff;
+
+}
+
+/*======================
+VESTIMENTA
+=======================*/
+
+.vestimenta{
+
+    min-height:100vh;
+
+    background:#fbf8f3;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.icono-vestimenta{
+
+    font-size:70px;
+
+    margin:30px 0;
+
+}
+
+/*======================
+REGALOS
+=======================*/
+
+.regalos{
+
+    min-height:100vh;
+
+    background:#f7f3ed;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.icono-regalo{
+
+    font-size:70px;
+
+    margin:30px 0;
+
+}
+
+.datos-regalo{
+
+    margin-top:45px;
+
+}
+
+.copiar{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:15px;
+
+}
+
+.copiar span{
+
+    background:white;
+
+    border:1px solid #dcc7a4;
+
+    padding:15px 25px;
+
+    border-radius:8px;
+
+    font-weight:500;
+
+    color:#666;
+
+}
+
+.copiar button{
+
+    padding:15px 28px;
+
+    border:none;
+
+    background:#c7a46d;
+
+    color:white;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.copiar button:hover{
+
+    background:#b58b54;
+
+}
+
+/*======================
+GALERÍA
+=======================*/
+
+.galeria{
+
+    min-height:100vh;
+
+    background:#fbf8f3;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.grid-galeria{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    margin-top:50px;
+
+}
+
+.grid-galeria img{
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+    transition:.35s;
+
+}
+
+.grid-galeria img:hover{
+
+    transform:scale(1.03);
+
+}
+
+@media(max-width:768px){
+
+    .grid-galeria{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/*======================
+CONFIRMAR
+=======================*/
+
+.confirmar{
+
+    min-height:100vh;
+
+    background:#fbf8f3;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+.botones-confirmar{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-top:45px;
+
+}
+
+.btn-confirmar{
+
+    display:inline-block;
+
+    padding:18px 38px;
+
+    background:#c7a46d;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:40px;
+
+    transition:.3s;
+
+    font-size:18px;
+
+}
+
+.btn-confirmar:hover{
+
+    background:#b58b54;
+
+    transform:translateY(-3px);
+
+}
+
+/*======================
+FINAL
+=======================*/
+
+.final{
+
+    min-height:100vh;
+
+    background:#f7f3ed;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+.final-contenido{
+
+    max-width:800px;
+
+}
+
+.final h2{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:64px;
+
+    color:#b58b54;
+
+    font-weight:500;
+
+    margin-bottom:25px;
+
+}
+
+.final p{
+
+    max-width:650px;
+
+    margin:20px auto;
+
+    color:#777;
+
+    font-size:20px;
+
+    line-height:1.9;
+
+}
+
+.final h3{
+
+    margin-top:60px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:54px;
+
+    color:#b58b54;
+
+    font-weight:500;
+
+}
+
+.fecha-final{
+
+    display:block;
+
+    margin-top:18px;
+
+    color:#999;
+
+    letter-spacing:4px;
+
+    font-size:18px;
+
+}
