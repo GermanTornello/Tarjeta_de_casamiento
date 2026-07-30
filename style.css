@@ -972,3 +972,102 @@ FINAL
     text-align:center;
 
 }
+
+/*======================
+RESPONSIVE
+=======================*/
+
+@media (max-width: 768px) {
+
+    body{
+        overflow-x:hidden;
+    }
+
+    /* HERO */
+
+    .contenido{
+        margin-top:40px;
+        padding:0 20px;
+    }
+
+    .contenido h1{
+        font-size:58px;
+    }
+
+    .nombres span{
+        font-size:28px;
+    }
+
+    #btnInvitacion{
+        width:260px;
+        height:70px;
+        font-size:22px;
+    }
+
+    .flor{
+        width:90px;
+    }
+
+    /* MARCOS */
+
+    .marco{
+        padding:60px 25px;
+    }
+
+    /* TITULOS */
+
+    .marco h2,
+    .contador h2,
+    .final h2{
+        font-size:42px;
+    }
+
+    .final h3{
+        font-size:40px;
+    }
+
+    /* PÁRRAFOS */
+
+    .marco p,
+    .final p{
+        font-size:17px;
+    }
+
+    /* CONTADOR */
+
+    .contador-grid{
+        gap:15px;
+    }
+
+    .card-tiempo{
+        width:140px;
+        height:140px;
+    }
+
+    .card-tiempo span{
+        font-size:46px;
+    }
+
+    /* EVENTO */
+
+    .item-evento{
+        width:100%;
+    }
+
+    /* GALERÍA */
+
+    .grid-galeria{
+        grid-template-columns:1fr;
+    }
+
+    .grid-galeria img{
+        height:300px;
+    }
+
+    /* FLORES */
+
+    .flor-bienvenida{
+        width:140px;
+    }
+
+}
