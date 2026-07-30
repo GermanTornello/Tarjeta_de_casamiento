@@ -1,109 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Gisella & Maciel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <title>Maciel & Gisella</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<!-- INTRO -->
-<div id="intro">
-  <div class="card">
-    <p>Tenés una invitación</p>
-    <button onclick="abrirInvitacion()">Abrir</button>
-  </div>
-</div>
+    <!-- INTRO -->
 
-<!-- CONTENIDO -->
-<div id="contenido">
+    <section id="intro">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="overlay">
-      <p class="sub">NOS CASAMOS</p>
-      <h1>Gisella & Maciel</h1>
-      <p class="fecha">15 · NOVIEMBRE · 2026</p>
-    </div>
-  </section>
+        <div class="intro-card">
 
-  <!-- CONTADOR -->
-  <section class="section">
-    <h2>Faltan</h2>
-    <div id="countdown"></div>
-  </section>
+            <h2>Tenés una invitación</h2>
 
-  <!-- DETALLES -->
-  <section class="section">
-    <h2>Detalles</h2>
-    <p>📅 15 de Noviembre 2026</p>
-    <p>🕒 20:00 hs</p>
-    <p>📍 Salón Los Olivos, Mendoza</p>
+            <p>Maciel & Gisella</p>
 
-    <a class="btn" href="https://www.google.com/maps?q=Mendoza" target="_blank">
-      Cómo llegar
-    </a>
-  </section>
-  
-<section class="ubicacion">
-  <div class="overlay-ubi">
-    
-    <h2 class="titulo-ubi">UBICACIÓN</h2>
-    
-    <p class="direccion">
-      Montecaseros 338 <br>
-      (Coquimbito - Maipú)
-    </p>
+            <button id="abrir">
+                Abrir invitación
+            </button>
 
-    <a href="https://www.google.com/maps?q=Montecaseros+338+Maipu+Mendoza" target="_blank" class="btn-ubi">
-      🔗 VER EN MAPA
-    </a>
+        </div>
 
-  </div>
-</section>
+    </section>
 
-  <!-- GALERIA -->
-  <section class="section">
-    <h2>Momentos</h2>
-    <div class="galeria">
-      <img src="foto1.jpg">
-      <img src="foto2.jpg">
-      <img src="foto3.jpg">
-      <img src="foto4.jpg">
-    </div>
-  </section>
+    <!-- PORTADA -->
 
-  <!-- CONFIRMAR -->
-  <section class="section">
-    <h2>Confirmar asistencia</h2>
+    <section class="hero" id="hero">
 
-    <a class="btn" href="https://forms.gle/TU_LINK" target="_blank">
-      Confirmar
-    </a>
+        <!-- Flores -->
 
-    <a class="btn whatsapp" href="https://wa.me/549261XXXXXXX" target="_blank">
-      WhatsApp
-    </a>
-  </section>
+        <img src="img/flor.png" class="flor tl" alt="">
+        <img src="img/flor.png" class="flor tr" alt="">
+        <img src="img/flor.png" class="flor bl" alt="">
+        <img src="img/flor.png" class="flor br" alt="">
 
-  <footer>
-    <p>Te esperamos 💍</p>
-  </footer>
+        <div class="overlay"></div>
 
-</div>
+        <div class="contenido">
 
-<!-- MÚSICA -->
-<audio id="musica" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
+            <h1>Nos Casamos</h1>
 
-<script src="script.js"></script>
+            <div class="nombres">
+
+                <span>Maciel</span>
+
+                <span class="ampersand">&</span>
+
+                <span>Gisella</span>
+
+            </div>
+
+            <button id="btnInvitacion">
+                Abrir invitación
+            </button>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
