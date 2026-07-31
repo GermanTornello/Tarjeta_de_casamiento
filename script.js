@@ -37,15 +37,15 @@ if (btnInvitacion) {
 // COPIAR ALIAS
 // ==============================
 
-function copiarAlias() {
+function copiarAlias(id) {
 
-    const alias = document.getElementById("alias");
+    const dato = document.getElementById(id);
 
-    if (!alias) return;
+    if (!dato) return;
 
-    navigator.clipboard.writeText(alias.innerText);
+    navigator.clipboard.writeText(dato.innerText);
 
-    alert("¡Alias copiado correctamente!");
+    alert("¡Copiado correctamente!");
 
 }
 
