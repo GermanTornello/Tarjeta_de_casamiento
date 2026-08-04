@@ -66,7 +66,10 @@ Seleccioná las personas que asistirán a la celebración.
 
                     <br><br>
 
-                    <select id="select-${persona.id}">
+                    <select
+    id="select-${persona.id}"
+    class="menu-select"
+>
 
                         <option value="Normal">🍽 Normal</option>
                         <option value="Celiaco">🌾 Celíaco</option>
