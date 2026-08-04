@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Confirmar asistencia</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<section class="confirmacion">
+
+    <div class="marco">
+
+        <h2>Confirmar asistencia</h2>
+
+        <div class="adorno">
+            <span></span>
+            <span class="rombo">◆</span>
+            <span></span>
+        </div>
+
+        <p>
+            Estamos muy felices de compartir este día con ustedes.
+        </p>
+
+        <p>
+            Buscá tu invitación escribiendo tu nombre o apellido.
+        </p>
+
+        <div class="busqueda">
+
+            <input
+                type="text"
+                id="nombre"
+                class="input-confirmar"
+                placeholder="Ej: Tornello"
+            >
+
+            <button id="buscar" class="btn-evento">
+                Buscar
+            </button>
+
+        </div>
+
+        <div id="resultado"></div>
+
+    </div>
+
+</section>
+
+<script src="confirmar.js"></script>
+
+</body>
+
+</html>

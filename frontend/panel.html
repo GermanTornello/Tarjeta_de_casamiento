@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Panel</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<section class="bienvenidos">
+
+<div class="marco">
+
+<h2>Panel de Administración</h2>
+
+<div class="adorno">
+<span></span>
+<span class="rombo">◆</span>
+<span></span>
+</div>
+
+<div id="estadisticas"></div>
+
+<input
+    type="text"
+    id="buscador"
+    class="input-confirmar"
+    placeholder="Buscar familia..."
+    onkeyup="filtrarFamilias()"
+>
+
+<br><br>
+
+<div class="filtros">
+
+    <button onclick="mostrarTodas()">
+        Todas
+    </button>
+
+    <button onclick="filtrarEstado('Pendiente')">
+        🔴 Pendientes
+    </button>
+
+    <button onclick="filtrarEstado('Parcial')">
+        🟡 Parciales
+    </button>
+
+    <button onclick="filtrarEstado('Completa')">
+        🟢 Completas
+    </button>
+
+</div>
+
+<br>
+
+<br>
+
+<table id="tabla" style="width:100%;border-collapse:collapse;"></table>
+
+</div>
+
+</section>
+
+<script src="panel.js"></script>
+
+</body>
+
+</html>
