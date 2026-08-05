@@ -16,7 +16,7 @@ async function buscarFamilia() {
 
     try {
 
-        const respuesta = await fetch(`http://127.0.0.1:5000/buscar/${encodeURIComponent(nombre)}`);
+        const respuesta = await fetch(`https://tarjetadecasamiento-production.up.railway.app/buscar/${encodeURIComponent(nombre)}`);
 
         const datos = await respuesta.json();
 
@@ -161,7 +161,7 @@ async function confirmarAsistencia() {
     });
 
     const respuesta = await fetch(
-        "http://127.0.0.1:5000/confirmar",
+    "https://tarjetadecasamiento-production.up.railway.app/confirmar",
         {
             method: "POST",
             headers: {
