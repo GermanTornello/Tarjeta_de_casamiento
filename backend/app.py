@@ -9,9 +9,9 @@ app = Flask(__name__)
 CORS(app)
 
 # Obtener la URL de la base de datos desde Railway
-database_url = os.getenv("URL_MYSQL")
+database_url = os.getenv("MYSQL_URL")
 
-print("URL_MYSQL =", database_url)
+print("MYSQL_URL =", os.getenv("MYSQL_URL"))
 
 if database_url is None:
     raise Exception("ERROR: La variable URL_MYSQL no existe en Railway.")
