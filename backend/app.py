@@ -8,14 +8,20 @@ app = Flask(__name__)
 
 CORS(app)
 
+# Obtener la URL de la base de datos desde Railway
 database_url = os.getenv("URL_MYSQL")
+
+print("URL_MYSQL =", database_url)
+
+if database_url is None:
+    raise Exception("ERROR: La variable URL_MYSQL no existe en Railway.")
+
+# Adaptar la URL para SQLAlchemy + PyMySQL
 database_url = database_url.replace("mysql://", "mysql+pymysql://", 1)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["ADMIN_PASSWORD"] = "Boda2026!"
-
-print("URL_MYSQL =", os.getenv("URL_MYSQL"))
 
 db.init_app(app)
 
