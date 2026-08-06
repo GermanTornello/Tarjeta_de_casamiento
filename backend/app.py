@@ -15,6 +15,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["ADMIN_PASSWORD"] = "Boda2026!"
 
+print("URL_MYSQL =", os.getenv("URL_MYSQL"))
+
 db.init_app(app)
 
 app.register_blueprint(api)
