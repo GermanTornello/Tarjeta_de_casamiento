@@ -1,4 +1,10 @@
 // ==============================
+// API
+// ==============================
+
+const API = "https://tarjetadecasamiento-production.up.railway.app";
+
+// ==============================
 // INTRO
 // ==============================
 
@@ -7,14 +13,10 @@ const hero = document.getElementById("hero");
 const abrir = document.getElementById("abrir");
 
 if (abrir) {
-
     abrir.addEventListener("click", () => {
-
         intro.style.display = "none";
         hero.style.display = "flex";
-
     });
-
 }
 
 // ==============================
@@ -24,13 +26,9 @@ if (abrir) {
 const btnInvitacion = document.getElementById("btnInvitacion");
 
 if (btnInvitacion) {
-
     btnInvitacion.addEventListener("click", () => {
-
         window.location.href = "invitacion.html";
-
     });
-
 }
 
 // ==============================
@@ -46,7 +44,6 @@ function copiarAlias(id) {
     navigator.clipboard.writeText(dato.innerText);
 
     alert("¡Copiado correctamente!");
-
 }
 
 // ==============================
@@ -76,7 +73,6 @@ if (dias && horas && minutos && segundos) {
             segundos.textContent = "00";
 
             return;
-
         }
 
         const d = Math.floor(diferencia / (1000 * 60 * 60 * 24));
@@ -100,15 +96,15 @@ if (dias && horas && minutos && segundos) {
         horas.textContent = String(h).padStart(2, "0");
         minutos.textContent = String(m).padStart(2, "0");
         segundos.textContent = String(s).padStart(2, "0");
-
     }
 
     actualizarContador();
 
     setInterval(actualizarContador, 1000);
+}
 
 // ==========================
-// CONFIRMAR ASISTENCIA
+// BUSCAR FAMILIA
 // ==========================
 
 async function buscarFamilia() {
@@ -122,7 +118,9 @@ async function buscarFamilia() {
 
     try {
 
-        const respuesta = await fetch(`http://127.0.0.1:5000/buscar/${encodeURIComponent(nombre)}`);
+        const respuesta = await fetch(
+            `${API}/buscar/${encodeURIComponent(nombre)}`
+        );
 
         const datos = await respuesta.json();
 
@@ -145,7 +143,8 @@ async function buscarFamilia() {
                 <h3>${datos.familia}</h3>
 
                 <p>
-                    Personas invitadas: <strong>${datos.cantidad}</strong>
+                    Personas invitadas:
+                    <strong>${datos.cantidad}</strong>
                 </p>
 
                 <br>
@@ -154,7 +153,6 @@ async function buscarFamilia() {
         datos.integrantes.forEach(persona => {
 
             html += `
-
                 <div class="persona">
 
                     <input
@@ -168,13 +166,10 @@ async function buscarFamilia() {
                     </label>
 
                 </div>
-
             `;
-
         });
 
         html += `
-
                 <button
                     class="btn-confirmar"
                     onclick="confirmarAsistencia()">
@@ -184,7 +179,6 @@ async function buscarFamilia() {
                 </button>
 
             </div>
-
         `;
 
         contenedor.innerHTML = html;
@@ -194,10 +188,12 @@ async function buscarFamilia() {
         console.error(error);
 
         alert("No se pudo conectar con el servidor.");
-
     }
-
 }
+
+// ==========================
+// CONFIRMAR ASISTENCIA
+// ==========================
 
 async function confirmarAsistencia() {
 
@@ -208,43 +204,40 @@ async function confirmarAsistencia() {
         alert("Seleccioná al menos una persona.");
 
         return;
-
     }
 
     const invitados = [];
 
     checks.forEach(c => {
-
         invitados.push(parseInt(c.value));
-
     });
 
-    const respuesta = await fetch("http://127.0.0.1:5000/confirmar", {
+    try {
 
-        method: "POST",
+        const respuesta = await fetch(`${API}/confirmar`, {
 
-        headers: {
+            method: "POST",
 
-            "Content-Type": "application/json"
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-        },
+            body: JSON.stringify({
+                invitados: invitados
+            })
+        });
 
-        body: JSON.stringify({
+        const datos = await respuesta.json();
 
-            invitados: invitados
+        alert(datos.mensaje);
 
-        })
+        document.getElementById("resultadoBusqueda").innerHTML = "";
+        document.getElementById("buscarNombre").value = "";
 
-    });
+    } catch (error) {
 
-    const datos = await respuesta.json();
+        console.error(error);
 
-    alert(datos.mensaje);
-
-    document.getElementById("resultadoBusqueda").innerHTML = "";
-
-    document.getElementById("buscarNombre").value = "";
-
-}
-
+        alert("No se pudo confirmar la asistencia.");
+    }
 }

@@ -5,7 +5,9 @@ from conexion import db
 from routes import api
 
 app = Flask(__name__)
-
+@app.route("/")
+def inicio():
+    return "Backend funcionando 🚀"
 CORS(app)
 
 # Obtener la URL de la base de datos desde Railway
