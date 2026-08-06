@@ -8,7 +8,10 @@ app = Flask(__name__)
 
 CORS(app)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("URL_MYSQL")
+database_url = os.getenv("URL_MYSQL")
+database_url = database_url.replace("mysql://", "mysql+pymysql://", 1)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = database_url
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["ADMIN_PASSWORD"] = "Boda2026!"
 
