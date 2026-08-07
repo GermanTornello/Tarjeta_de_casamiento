@@ -1399,73 +1399,75 @@ CHECKBOX PREMIUM
 }
 
 /* ================================
-   CONFIRMACIÓN - CELULAR
+   CONFIRMACIÓN - CENTRADO REAL
+================================ */
+
+.persona {
+    display: grid;
+    grid-template-columns: 22px 1fr 22px;
+    align-items: center;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 12px 0;
+}
+
+.persona input[type="checkbox"] {
+    grid-column: 1;
+    justify-self: center;
+    width: 22px;
+    height: 22px;
+}
+
+.persona label {
+    grid-column: 2;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+}
+
+
+/* ================================
+   CELULAR
 ================================ */
 
 @media (max-width: 768px) {
 
-    .familia {
+    .familia-card {
         width: 100%;
-        padding: 35px 20px;
+        max-width: 420px;
+        margin: 30px auto 0;
+        text-align: center;
     }
 
-    .familia h3 {
+    .familia-card h3 {
         text-align: center;
-        font-size: 36px;
-        line-height: 1.2;
+    }
+
+    .familia-card > p {
+        text-align: center;
     }
 
     .persona {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 18px;
-        padding: 25px 0 45px;
         width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+        grid-template-columns: 22px 1fr 22px;
+        padding: 14px 0;
     }
 
-    /* Nombre + checkbox */
     .persona label {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        width: 100%;
         text-align: center;
-    }
-
-    .persona input[type="checkbox"] {
-        flex-shrink: 0;
-        width: 22px;
-        height: 22px;
-    }
-
-    /* Nombre */
-    .persona label,
-    .persona {
-        font-size: 20px;
-    }
-
-    /* Tipo de menú */
-    .persona .menu-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .persona .menu-container label {
-        width: auto;
-        margin-bottom: 10px;
-        justify-content: center;
         font-size: 18px;
     }
 
-    /* Selector */
-    .menu-select {
-        width: min(100%, 330px);
+    .persona input[type="checkbox"] {
+        justify-self: center;
+    }
+
+    .familia-card .btn-confirmar {
+        display: block;
+        margin: 35px auto 10px;
     }
 
 }
