@@ -1401,7 +1401,6 @@ CHECKBOX PREMIUM
 /* =========================
    CONFIRMACIÓN - CELULAR
 ========================= */
-
 @media (max-width: 768px) {
 
     .confirmacion {
@@ -1429,36 +1428,45 @@ CHECKBOX PREMIUM
         word-break: break-word;
     }
 
+    /* PERSONA */
     .persona {
-        width: 100%;
         display: grid;
         grid-template-columns: 30px minmax(0, 1fr);
-        gap: 8px;
-        padding: 16px 0;
+        gap: 10px;
+        width: 100%;
+        padding: 18px 0;
         font-size: 17px;
+        align-items: start;
     }
 
     .persona input[type="checkbox"] {
+        grid-column: 1;
         width: 22px;
         height: 22px;
-        margin-top: 4px;
+        margin-top: 5px;
     }
 
-    .persona > div {
-        min-width: 0;
+    .persona > label {
+        grid-column: 2;
         width: 100%;
+        min-width: 0;
+        word-break: normal;
+        overflow-wrap: break-word;
+        line-height: 1.5;
     }
 
-    .persona label {
-        display: block;
+    /* BLOQUE DEL MENÚ */
+    .persona > div {
+        grid-column: 2;
+        width: 100%;
         min-width: 0;
-        word-break: break-word;
+        margin-top: 8px;
     }
 
     .menu-select {
         width: 100%;
         max-width: 100%;
-        margin-top: 10px;
+        box-sizing: border-box;
         padding: 13px 40px 13px 15px;
         font-size: 15px;
     }
