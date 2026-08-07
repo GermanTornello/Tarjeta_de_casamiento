@@ -39,12 +39,13 @@ def confirmar():
 
     datos = request.json
 
-    for persona_id in datos["invitados"]:
+    for persona in datos["invitados"]:
 
-        invitado = Invitado.query.get(persona_id)
+        invitado = Invitado.query.get(persona["id"])
 
         if invitado:
             invitado.asiste = True
+            invitado.menu = persona["menu"]
 
     db.session.commit()
 
