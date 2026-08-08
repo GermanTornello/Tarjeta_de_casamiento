@@ -1393,7 +1393,7 @@ MENU PREMIUM
     width: 220px;
     max-width: 100%;
 
-    margin: 8px auto 0;
+    margin: 0 auto;
 }
 
 /* TEXTO "TIPO DE MENÚ" SI ESTÁ DENTRO DE .persona */
@@ -1432,7 +1432,7 @@ MENU PREMIUM
     .persona .menu-select {
     width: 100%;
     max-width: 300px;
-    margin: 8px auto 0;
+    margin: 0 auto;
 }
 
     .persona .tipo-menu {
