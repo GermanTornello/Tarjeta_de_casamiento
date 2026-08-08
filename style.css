@@ -1510,3 +1510,70 @@ MENU PREMIUM
 .menu-persona .menu-select {
     margin: 0;
 }
+
+/* ================================
+   EFECTO SORPRESA - HERO
+================================ */
+
+.titulo-sorpresa {
+    opacity: 0;
+    transform: translateY(25px);
+    animation: aparecerTitulo 1.2s ease forwards;
+    animation-delay: 2s;
+}
+
+.nombres-sorpresa {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecerNombres 1s ease forwards;
+    animation-delay: 3.2s;
+}
+
+.boton-sorpresa {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: aparecerBoton 1s ease forwards;
+    animation-delay: 4.2s;
+}
+
+@keyframes aparecerTitulo {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes aparecerNombres {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes aparecerBoton {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
