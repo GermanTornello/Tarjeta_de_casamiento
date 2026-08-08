@@ -113,22 +113,22 @@ Seleccioná las personas que asistirán a la celebración.
 
 }
 
-function mostrarMenu(id){
+function mostrarMenu(id) {
 
     const check = document.querySelector(`input[value="${id}"]`);
-
     const menu = document.getElementById(`menu-${id}`);
 
-    if(check.checked){
+    if (!check || !menu) return;
 
-        menu.style.display = "block";
+    if (check.checked) {
 
-    }else{
+        menu.style.display = "flex";
+
+    } else {
 
         menu.style.display = "none";
 
     }
-
 }
 
 async function confirmarAsistencia() {
