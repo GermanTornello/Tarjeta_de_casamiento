@@ -1340,55 +1340,102 @@ MENU PREMIUM
 }
 
 /* =================================
-   LISTA DE INVITADOS
+   INVITADOS - CENTRADO
 ================================= */
 
 .persona {
     position: relative;
     width: 100%;
     max-width: 380px;
-    margin: 0 auto;
-    min-height: 48px;
+    margin: 0 auto 35px;
+    padding: 12px 0;
+
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
+
+    text-align: center;
 }
+
+/* CHECKBOX */
 
 .persona input[type="checkbox"] {
     position: absolute;
     left: 0;
+    top: 14px;
+
     width: 22px;
     height: 22px;
+
     margin: 0;
+
     accent-color: #b58b54;
     cursor: pointer;
 }
 
+/* NOMBRE */
+
 .persona label {
     display: block;
     width: 100%;
+
     text-align: center;
+
     font-size: 18px;
     cursor: pointer;
 }
 
+/* MENÚ QUE APARECE AL SELECCIONAR */
 
-/* CELULAR */
+.persona .menu-select {
+    display: block;
+
+    width: 220px;
+    max-width: 100%;
+
+    margin: 20px auto 0;
+}
+
+/* TEXTO "TIPO DE MENÚ" SI ESTÁ DENTRO DE .persona */
+
+.persona .tipo-menu {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* =================================
+   CELULAR
+================================= */
 
 @media (max-width: 768px) {
 
     .persona {
+        width: 100%;
         max-width: 320px;
-        min-height: 48px;
+        margin: 0 auto 35px;
+        padding: 12px 0;
     }
 
     .persona input[type="checkbox"] {
         left: 0;
+        top: 14px;
     }
 
     .persona label {
+        width: 100%;
         text-align: center;
         font-size: 17px;
+    }
+
+    .persona .menu-select {
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto 0;
+    }
+
+    .persona .tipo-menu {
+        text-align: center;
     }
 }
