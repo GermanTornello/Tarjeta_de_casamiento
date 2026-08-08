@@ -1534,21 +1534,21 @@ MENU PREMIUM
     opacity: 0;
     transform: translateY(25px);
     animation: aparecerTitulo 1.2s ease forwards;
-    animation-delay: 2s;
+    animation-delay: 1s;
 }
 
 .nombres-sorpresa {
     opacity: 0;
     transform: translateY(20px);
     animation: aparecerNombres 1s ease forwards;
-    animation-delay: 3.2s;
+    animation-delay: 2.2s;
 }
 
 .boton-sorpresa {
     opacity: 0;
     transform: translateY(15px);
     animation: aparecerBoton 1s ease forwards;
-    animation-delay: 4.2s;
+    animation-delay: 3.2s;
 }
 
 @keyframes aparecerTitulo {
