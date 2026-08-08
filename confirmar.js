@@ -47,11 +47,11 @@ Seleccioná las personas que asistirán a la celebración.
 
                 <label>
 
-                    <input
-                        type="checkbox"
-                        value="${persona.id}"
-                        onchange="mostrarMenu(${persona.id})"
-                    >
+                   <input
+    type="checkbox"
+    value="${persona.id}"
+    onchange="mostrarMenu(${persona.id})"
+>
 
                     ${persona.nombre}
 
@@ -60,7 +60,7 @@ Seleccioná las personas que asistirán a la celebración.
                <div
    <div
     id="menu-${persona.id}"
-    class="menu-persona"
+    class="menu-persona oculto"
 >
 
     <label>Tipo de menú</label>
@@ -122,15 +122,14 @@ function mostrarMenu(id) {
 
     if (check.checked) {
 
-        menu.style.display = "flex";
+        menu.classList.remove("oculto");
 
     } else {
 
-        menu.style.display = "none";
+        menu.classList.add("oculto");
 
     }
 }
-
 async function confirmarAsistencia() {
 
     const checks = document.querySelectorAll(

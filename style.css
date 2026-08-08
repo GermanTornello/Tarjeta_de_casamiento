@@ -1439,6 +1439,17 @@ MENU PREMIUM
         text-align: center;
     }
 }
+/* MENÚ OCULTO HASTA SELECCIONAR AL INVITADO */
+
+.menu-persona {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.menu-persona.oculto {
+    display: none !important;
+}
 /* ================================
    MENÚ DE CADA INVITADO
 ================================ */
