@@ -1479,3 +1479,24 @@ MENU PREMIUM
     }
 
 }
+
+/* ================================
+   MENÚ DE CADA INVITADO
+================================ */
+
+.menu-persona {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.menu-persona > label {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.menu-persona .menu-select {
+    margin: 0;
+}

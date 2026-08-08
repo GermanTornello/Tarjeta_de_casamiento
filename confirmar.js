@@ -58,9 +58,9 @@ Seleccioná las personas que asistirán a la celebración.
                 </label>
 
                <div
+   <div
     id="menu-${persona.id}"
-    class="menu-contenedor"
-    style="display:none;"
+    class="menu-persona"
 >
 
     <label>Tipo de menú</label>
