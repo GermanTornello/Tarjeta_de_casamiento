@@ -573,12 +573,17 @@ CEREMONIA
 
 }
 
-.icono{
+.icono {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    font-size:36px;
-
-    margin-bottom:15px;
-
+.icono img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
 }
 
 .item-evento h3{
@@ -651,12 +656,17 @@ VESTIMENTA
 
 }
 
-.icono-vestimenta{
+.icono-vestimenta {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    font-size:70px;
-
-    margin:30px 0;
-
+.icono-vestimenta img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
 }
 
 /*======================
@@ -679,12 +689,17 @@ REGALOS
 
 }
 
-.icono-regalo{
+.icono-regalo {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    font-size:70px;
-
-    margin:30px 0;
-
+.icono-regalo img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
 }
 
 .datos-regalo{
