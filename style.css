@@ -1439,3 +1439,43 @@ MENU PREMIUM
         text-align: center;
     }
 }
+/* ================================
+   MENÚ DE CADA INVITADO
+================================ */
+
+.menu-contenedor {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.menu-contenedor > label {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.menu-contenedor .menu-select {
+    margin: 0 auto;
+}
+
+/* CELULAR */
+
+@media (max-width: 768px) {
+
+    .menu-contenedor {
+        margin-top: 5px;
+    }
+
+    .menu-contenedor > label {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    .menu-contenedor .menu-select {
+        margin: 0 auto;
+    }
+
+}

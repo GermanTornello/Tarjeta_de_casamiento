@@ -57,28 +57,27 @@ Seleccioná las personas que asistirán a la celebración.
 
                 </label>
 
-                <div
-                    id="menu-${persona.id}"
-                    style="display:none;margin:10px 0 20px 30px;"
-                >
-
-                    <label>Tipo de menú</label>
-
-                    <br><br>
-
-                    <select
-    id="select-${persona.id}"
-    class="menu-select"
+               <div
+    id="menu-${persona.id}"
+    class="menu-contenedor"
+    style="display:none;"
 >
 
-                        <option value="Normal">🍽 Normal</option>
-                        <option value="Celiaco">🌾 Celíaco</option>
-                        <option value="Vegetariano">🥗 Vegetariano</option>
-                        <option value="Vegano">🌱 Vegano</option>
+    <label>Tipo de menú</label>
 
-                    </select>
+    <select
+        id="select-${persona.id}"
+        class="menu-select"
+    >
 
-                </div>
+        <option value="Normal">🍽 Normal</option>
+        <option value="Celiaco">🌾 Celíaco</option>
+        <option value="Vegetariano">🥗 Vegetariano</option>
+        <option value="Vegano">🌱 Vegano</option>
+
+    </select>
+
+</div>
 
             </div>
 
