@@ -73,7 +73,8 @@ def admin():
 
             integrantes.append({
                 "nombre": invitado.nombre,
-                "asiste": invitado.asiste
+                "asiste": invitado.asiste,
+    "menu": invitado.menu
             })
 
         resultado.append({

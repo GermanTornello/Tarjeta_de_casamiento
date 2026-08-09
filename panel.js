@@ -1,71 +1,191 @@
 cargar();
 
-async function cargar(){
+async function cargar() {
 
-    const stats = await fetch("http://127.0.0.1:5000/estadisticas");
-    const datos = await stats.json();
+    try {
 
-    document.getElementById("estadisticas").innerHTML = `
-        <h3>Familias: ${datos.familias}</h3>
-        <h3>Invitados: ${datos.invitados}</h3>
-        <h3>Confirmados: ${datos.confirmados}</h3>
-        <h3>Pendientes: ${datos.pendientes}</h3>
-        <br>
-    `;
+        const stats = await fetch("http://127.0.0.1:5000/estadisticas");
+        const datos = await stats.json();
 
-    const respuesta = await fetch("http://127.0.0.1:5000/admin");
+        document.getElementById("estadisticas").innerHTML = `
+            <h3>Familias: ${datos.familias}</h3>
+            <h3>Invitados: ${datos.invitados}</h3>
+            <h3>Confirmados: ${datos.confirmados}</h3>
+            <h3>Pendientes: ${datos.pendientes}</h3>
+            <br>
+        `;
 
-    const familias = await respuesta.json();
+        const respuesta = await fetch("http://127.0.0.1:5000/admin");
 
-    let tabla = `
-        <tr>
-            <th>Familia</th>
-            <th>Invitados</th>
-            <th>Confirmados</th>
-            <th>Estado</th>
-        </tr>
-    `;
+        const familias = await respuesta.json();
 
-    familias.forEach(f=>{
+        let tabla = `
+            <tr>
+                <th>Familia</th>
+                <th>Invitados</th>
+                <th>Confirmados</th>
+                <th>Estado</th>
+                <th>Detalle</th>
+            </tr>
+        `;
 
-    let estado = "";
-    let color = "";
+        familias.forEach((f, index) => {
 
-    if(f.confirmados === 0){
+            let estado = "";
+            let color = "";
 
-        estado = "🔴 Pendiente";
-        color = "#d9534f";
+            if (f.confirmados === 0) {
 
-    }else if(f.confirmados < f.cantidad){
+                estado = "🔴 Pendiente";
+                color = "#d9534f";
 
-        estado = "🟡 Parcial";
-        color = "#f0ad4e";
+            } else if (f.confirmados < f.cantidad) {
 
-    }else{
+                estado = "🟡 Parcial";
+                color = "#f0ad4e";
 
-        estado = "🟢 Completa";
-        color = "#5cb85c";
+            } else {
+
+                estado = "🟢 Completa";
+                color = "#5cb85c";
+
+            }
+
+            tabla += `
+                <tr>
+                    <td>${f.familia}</td>
+
+                    <td>${f.cantidad}</td>
+
+                    <td>${f.confirmados}/${f.cantidad}</td>
+
+                    <td style="color:${color};font-weight:bold;">
+                        ${estado}
+                    </td>
+
+                    <td>
+                        <button
+                            onclick="mostrarInvitados(${index})"
+                            style="
+                                padding:8px 16px;
+                                border:none;
+                                border-radius:20px;
+                                background:#b58b54;
+                                color:white;
+                                cursor:pointer;
+                            "
+                        >
+                            Ver invitados
+                        </button>
+                    </td>
+                </tr>
+
+                <tr
+                    id="detalle-${index}"
+                    style="display:none;"
+                >
+                    <td colspan="5">
+
+                        <div style="
+                            padding:20px;
+                            text-align:left;
+                            background:#faf7f2;
+                            border-radius:12px;
+                        ">
+
+                            <h3 style="
+                                color:#b58b54;
+                                margin-bottom:15px;
+                            ">
+                                ${f.familia}
+                            </h3>
+
+                            ${f.integrantes.map(invitado => `
+
+                                <div style="
+                                    display:flex;
+                                    justify-content:space-between;
+                                    align-items:center;
+                                    padding:12px 5px;
+                                    border-bottom:1px solid #e6d5b8;
+                                    gap:15px;
+                                    flex-wrap:wrap;
+                                ">
+
+                                    <strong>
+                                        ${invitado.nombre}
+                                    </strong>
+
+                                    <span>
+                                        ${
+                                            invitado.asiste
+                                            ? "✅ Confirmado"
+                                            : "⏳ Pendiente"
+                                        }
+                                    </span>
+
+                                    <span>
+                                        ${
+                                            invitado.asiste
+                                            ? `🍽 ${invitado.menu || "Sin menú"}`
+                                            : "—"
+                                        }
+                                    </span>
+
+                                </div>
+
+                            `).join("")}
+
+                        </div>
+
+                    </td>
+                </tr>
+            `;
+
+        });
+
+        document.getElementById("tabla").innerHTML = tabla;
+
+        // Guardamos las familias para poder abrir sus detalles
+        window.familiasAdmin = familias;
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("No se pudo conectar con el servidor.");
 
     }
 
-    tabla += `
-    <tr>
-        <td>${f.familia}</td>
-        <td>${f.cantidad}</td>
-        <td>${f.confirmados}/${f.cantidad}</td>
-        <td style="color:${color};font-weight:bold;">
-            ${estado}
-        </td>
-    </tr>
-    `;
+}
 
-});
 
-    document.getElementById("tabla").innerHTML = tabla;
+// =====================================
+// MOSTRAR / OCULTAR INVITADOS
+// =====================================
+
+function mostrarInvitados(index) {
+
+    const detalle = document.getElementById(`detalle-${index}`);
+
+    if (detalle.style.display === "none") {
+
+        detalle.style.display = "table-row";
+
+    } else {
+
+        detalle.style.display = "none";
+
+    }
 
 }
 
-function filtrarFamilias(){
+
+// =====================================
+// BUSCAR FAMILIAS
+// =====================================
+
+function filtrarFamilias() {
 
     const filtro = document
         .getElementById("buscador")
@@ -74,17 +194,17 @@ function filtrarFamilias(){
 
     const filas = document.querySelectorAll("#tabla tr");
 
-    filas.forEach((fila, index)=>{
+    filas.forEach((fila, index) => {
 
-        if(index === 0) return;
+        if (index === 0) return;
 
         const texto = fila.textContent.toLowerCase();
 
-        if(texto.includes(filtro)){
+        if (texto.includes(filtro)) {
 
             fila.style.display = "";
 
-        }else{
+        } else {
 
             fila.style.display = "none";
 
@@ -94,21 +214,26 @@ function filtrarFamilias(){
 
 }
 
-function filtrarEstado(estado){
+
+// =====================================
+// FILTRAR POR ESTADO
+// =====================================
+
+function filtrarEstado(estado) {
 
     const filas = document.querySelectorAll("#tabla tr");
 
-    filas.forEach((fila,index)=>{
+    filas.forEach((fila, index) => {
 
-        if(index===0) return;
+        if (index === 0) return;
 
-        if(fila.textContent.includes(estado)){
+        if (fila.textContent.includes(estado)) {
 
-            fila.style.display="";
+            fila.style.display = "";
 
-        }else{
+        } else {
 
-            fila.style.display="none";
+            fila.style.display = "none";
 
         }
 
@@ -116,13 +241,18 @@ function filtrarEstado(estado){
 
 }
 
-function mostrarTodas(){
 
-    const filas=document.querySelectorAll("#tabla tr");
+// =====================================
+// MOSTRAR TODAS
+// =====================================
 
-    filas.forEach(fila=>{
+function mostrarTodas() {
 
-        fila.style.display="";
+    const filas = document.querySelectorAll("#tabla tr");
+
+    filas.forEach(fila => {
+
+        fila.style.display = "";
 
     });
 
