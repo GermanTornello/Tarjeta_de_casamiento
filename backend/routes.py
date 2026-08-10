@@ -5,6 +5,25 @@ from models import Familia, Invitado
 
 api = Blueprint("api", __name__)
 
+@api.route("/login_admin", methods=["POST", "OPTIONS"])
+def login_admin():
+
+    if request.method == "OPTIONS":
+        return "", 200
+
+    datos = request.get_json()
+
+    password = datos.get("password")
+
+    if password == "Boda2026!":
+
+        return jsonify({
+            "mensaje": "Login correcto"
+        }), 200
+
+    return jsonify({
+        "error": "Contraseña incorrecta"
+    }), 401
 
 @api.route("/buscar/<nombre>")
 def buscar(nombre):
