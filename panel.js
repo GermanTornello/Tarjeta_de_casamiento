@@ -4,7 +4,9 @@ async function cargar() {
 
     try {
 
-        const stats = await fetch("http://127.0.0.1:5000/estadisticas");
+        const stats = await fetch(
+    "https://tarjetadecasamiento-production.up.railway.app/estadisticas"
+);
         const datos = await stats.json();
 
         document.getElementById("estadisticas").innerHTML = `
@@ -15,7 +17,9 @@ async function cargar() {
             <br>
         `;
 
-        const respuesta = await fetch("http://127.0.0.1:5000/admin");
+        const respuesta = await fetch(
+    "https://tarjetadecasamiento-production.up.railway.app/admin"
+);
 
         const familias = await respuesta.json();
 
