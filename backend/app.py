@@ -8,7 +8,12 @@ app = Flask(__name__)
 @app.route("/")
 def inicio():
     return "Backend funcionando 🚀"
-CORS(app)
+CORS(
+    app,
+    origins=["https://germantornello.github.io"],
+    methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type"]
+)
 
 # Obtener la URL de la base de datos desde Railway
 database_url = os.getenv("MYSQL_URL")
