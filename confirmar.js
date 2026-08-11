@@ -32,7 +32,7 @@ async function buscarFamilia() {
         let html = `
 <div class="familia">
 
-<h3>Familia ${datos.familia}</h3>
+<h3>Invitados ${datos.familia}</h3>
 
 <p>
 Seleccioná las personas que asistirán a la celebración.
