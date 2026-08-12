@@ -25,7 +25,48 @@
 </div>
 
 <div id="estadisticas"></div>
+<div class="agregar-familia">
 
+    <h3>Agregar familia</h3>
+
+    <input
+        type="text"
+        id="nombreFamilia"
+        class="input-confirmar"
+        placeholder="Nombre de la familia"
+    >
+
+    <div id="listaInvitados">
+
+        <input
+            type="text"
+            class="input-confirmar invitado-input"
+            placeholder="Nombre del invitado"
+        >
+
+    </div>
+
+    <button
+        type="button"
+        class="btn-evento"
+        onclick="agregarCampoInvitado()"
+    >
+        + Agregar invitado
+    </button>
+
+    <button
+        type="button"
+        class="btn-evento"
+        onclick="guardarFamilia()"
+    >
+        Guardar familia
+    </button>
+
+    <p id="mensajeFamilia"></p>
+
+</div>
+
+<br>
 <input
     type="text"
     id="buscador"

@@ -121,3 +121,48 @@ def estadisticas():
         "confirmados": confirmados,
         "pendientes": pendientes
     })
+
+@api.route("/agregar_familia", methods=["POST"])
+def agregar_familia():
+
+    datos = request.get_json()
+
+    nombre_familia = datos.get("familia")
+    invitados = datos.get("invitados")
+
+    if not nombre_familia or not invitados:
+        return jsonify({
+            "error": "Faltan datos"
+        }), 400
+
+    if len(invitados) == 0:
+        return jsonify({
+            "error": "Debe haber al menos un invitado"
+        }), 400
+
+    # Crear familia
+    familia = Familia(
+        nombre_principal=nombre_familia,
+        cantidad_invitados=len(invitados)
+    )
+
+    db.session.add(familia)
+    db.session.flush()
+
+    # Crear invitados
+    for nombre in invitados:
+
+        nuevo_invitado = Invitado(
+            familia_id=familia.id,
+            nombre=nombre
+        )
+
+        db.session.add(nuevo_invitado)
+
+    db.session.commit()
+
+    return jsonify({
+        "mensaje": "Familia agregada correctamente",
+        "familia": nombre_familia,
+        "cantidad": len(invitados)
+    }), 201

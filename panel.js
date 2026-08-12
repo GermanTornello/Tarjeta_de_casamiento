@@ -261,3 +261,135 @@ function mostrarTodas() {
     });
 
 }
+// =====================================
+// AGREGAR CAMPOS DE INVITADOS
+// =====================================
+
+function agregarCampoInvitado() {
+
+    const lista = document.getElementById("listaInvitados");
+
+    const input = document.createElement("input");
+
+    input.type = "text";
+    input.className = "input-confirmar invitado-input";
+    input.placeholder = "Nombre del invitado";
+
+    lista.appendChild(input);
+}
+
+
+// =====================================
+// GUARDAR FAMILIA
+// =====================================
+
+async function guardarFamilia() {
+
+    const familia = document
+        .getElementById("nombreFamilia")
+        .value
+        .trim();
+
+    const inputs = document.querySelectorAll(
+        ".invitado-input"
+    );
+
+    const invitados = [];
+
+    inputs.forEach(input => {
+
+        const nombre = input.value.trim();
+
+        if (nombre !== "") {
+            invitados.push(nombre);
+        }
+
+    });
+
+
+    if (familia === "") {
+
+        document.getElementById("mensajeFamilia").innerHTML =
+            "⚠️ Escribí el nombre de la familia.";
+
+        return;
+    }
+
+
+    if (invitados.length === 0) {
+
+        document.getElementById("mensajeFamilia").innerHTML =
+            "⚠️ Agregá al menos un invitado.";
+
+        return;
+    }
+
+
+    try {
+
+        const respuesta = await fetch(
+            "https://tarjetadecasamiento-production.up.railway.app/agregar_familia",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    familia: familia,
+
+                    invitados: invitados
+
+                })
+            }
+        );
+
+
+        const datos = await respuesta.json();
+
+
+        if (!respuesta.ok) {
+
+            document.getElementById("mensajeFamilia").innerHTML =
+                "❌ " + (datos.error || "No se pudo guardar.");
+
+            return;
+        }
+
+
+        document.getElementById("mensajeFamilia").innerHTML =
+            "✅ Familia agregada correctamente.";
+
+
+        // Limpiar familia
+        document.getElementById("nombreFamilia").value = "";
+
+
+        // Dejar solamente un campo de invitado
+        document.getElementById("listaInvitados").innerHTML = `
+
+            <input
+                type="text"
+                class="input-confirmar invitado-input"
+                placeholder="Nombre del invitado"
+            >
+
+        `;
+
+
+        // Actualizar automáticamente el panel
+        await cargar();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        document.getElementById("mensajeFamilia").innerHTML =
+            "❌ No se pudo conectar con el servidor.";
+
+    }
+
+}
