@@ -1701,3 +1701,87 @@ MENU PREMIUM
     }
 
 }
+/* =================================
+   CONTADOR - CELULAR
+================================= */
+
+@media (max-width: 600px) {
+
+    .contador {
+        min-height: 100vh;
+        padding: 50px 15px;
+        justify-content: center;
+    }
+
+    .contador h2 {
+        font-size: 30px;
+        letter-spacing: 1px;
+        line-height: 1.2;
+        white-space: nowrap;
+    }
+
+    .linea {
+        width: 75px;
+        height: 2px;
+        margin: 25px 0 50px;
+    }
+
+    .contador-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 145px);
+        gap: 45px 25px;
+    }
+
+    .card-tiempo {
+        width: 145px !important;
+        height: 145px !important;
+
+        min-width: 145px;
+        min-height: 145px;
+
+        border-radius: 50% !important;
+
+        background: #f5eee1;
+
+        border: 2px solid #cda65c;
+
+        box-shadow: none;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+
+        overflow: hidden;
+    }
+
+    .card-tiempo span {
+        font-family: 'Cormorant Garamond', serif;
+
+        font-size: 58px;
+
+        line-height: 1;
+
+        color: #55565b;
+
+        font-weight: 500;
+
+        z-index: 2;
+    }
+
+    .card-tiempo small {
+        font-family: 'Cormorant Garamond', serif;
+
+        font-size: 14px;
+
+        letter-spacing: 2px;
+
+        color: #55565b;
+
+        margin-top: 10px;
+
+        z-index: 2;
+    }
+}
