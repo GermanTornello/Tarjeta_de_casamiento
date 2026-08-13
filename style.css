@@ -423,104 +423,213 @@ BOTÓN CONTINUAR
 
 }
 
-/*======================
-CONTADOR
-=======================*/
+/* ======================
+   CONTADOR
+======================= */
 
-.contador{
+.contador {
+    min-height: 100vh;
 
-    min-height:100vh;
+    background: #f9f5ef;
 
-    background:#f9f5ef;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    display:flex;
+    padding: 80px 20px;
 
-    flex-direction:column;
+    position: relative;
 
-    justify-content:center;
-
-    align-items:center;
-
-    padding:80px 20px;
-
+    overflow: hidden;
 }
 
-.contador h2{
 
-    font-family:'Cormorant Garamond',serif;
+/* ======================
+   TÍTULO
+======================= */
 
-    font-size:58px;
+.contador h2 {
+    font-family: 'Cormorant Garamond', serif;
 
-    color:#b58b54;
+    font-size: 48px;
 
-    font-weight:500;
+    color: #a88650;
 
+    font-weight: 500;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+
+    margin: 0;
 }
 
-.linea{
 
-    width:80px;
+/* ======================
+   LÍNEA
+======================= */
 
-    height:2px;
+.linea {
+    width: 80px;
 
-    background:#d4b27c;
+    height: 2px;
 
-    margin:25px 0 60px;
+    background: #cba96c;
 
+    margin: 25px 0 70px;
 }
 
-.contador-grid{
 
-    display:flex;
+/* ======================
+   GRID
+======================= */
 
-    gap:35px;
+.contador-grid {
+    display: grid;
 
-    flex-wrap:wrap;
+    grid-template-columns: repeat(2, 220px);
 
-    justify-content:center;
+    gap: 90px 70px;
 
+    justify-content: center;
+
+    align-items: center;
 }
 
-.card-tiempo{
 
-    width:170px;
+/* ======================
+   CÍRCULOS
+======================= */
 
-    height:170px;
+.card-tiempo {
+    width: 220px;
+    height: 220px;
 
-    background:white;
+    border-radius: 50%;
 
-    border:1px solid #dcc7a4;
+    background: #f5eee1;
 
-    display:flex;
+    border: 2px solid #cda65c;
 
-    flex-direction:column;
+    display: flex;
 
-    justify-content:center;
+    flex-direction: column;
 
-    align-items:center;
+    justify-content: center;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    align-items: center;
 
+    position: relative;
+
+    box-sizing: border-box;
 }
 
-.card-tiempo span{
 
-    font-family:'Cormorant Garamond',serif;
+/* Textura suave dentro de los círculos */
 
-    font-size:62px;
+.card-tiempo::before {
+    content: "";
 
-    color:#b58b54;
+    position: absolute;
 
+    inset: 8px;
+
+    border-radius: 50%;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(170, 145, 105, 0.04) 0px,
+            rgba(170, 145, 105, 0.04) 1px,
+            transparent 1px,
+            transparent 3px
+        );
+
+    pointer-events: none;
 }
 
-.card-tiempo small{
 
-    margin-top:10px;
+/* ======================
+   NÚMEROS
+======================= */
 
-    color:#777;
+.card-tiempo span {
+    font-family: 'Cormorant Garamond', serif;
 
-    font-size:18px;
+    font-size: 82px;
 
+    line-height: 1;
+
+    color: #55565b;
+
+    font-weight: 500;
+
+    z-index: 1;
+}
+
+
+/* ======================
+   TEXTO
+======================= */
+
+.card-tiempo small {
+    margin-top: 18px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    color: #55565b;
+
+    font-size: 20px;
+
+    letter-spacing: 4px;
+
+    z-index: 1;
+}
+
+
+/* ======================
+   RESPONSIVE
+======================= */
+
+@media (max-width: 600px) {
+
+    .contador {
+        padding: 70px 15px;
+    }
+
+    .contador h2 {
+        font-size: 32px;
+
+        letter-spacing: 2px;
+    }
+
+    .linea {
+        margin-bottom: 45px;
+    }
+
+    .contador-grid {
+        grid-template-columns: repeat(2, 145px);
+
+        gap: 45px 25px;
+    }
+
+    .card-tiempo {
+        width: 145px;
+        height: 145px;
+    }
+
+    .card-tiempo span {
+        font-size: 55px;
+    }
+
+    .card-tiempo small {
+        font-size: 13px;
+
+        letter-spacing: 2px;
+
+        margin-top: 10px;
+    }
 }
 
 /*======================
