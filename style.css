@@ -746,25 +746,21 @@ CEREMONIA
 }
 
 /* ==========================
-   FLORES - DETALLES DEL EVENTO
+   FLORES DETALLES DEL EVENTO
 ========================== */
 
-.ceremonia {
-
+.marco {
     position: relative;
-
     overflow: hidden;
-
 }
 
 
 /* Flores */
 
-.flor-evento {
-
+.petalos {
     position: absolute;
 
-    width: 230px;
+    width: 120px;
 
     height: auto;
 
@@ -775,78 +771,64 @@ CEREMONIA
     opacity: 0.28;
 
     z-index: 0;
-
 }
 
 
 /* Arriba izquierda */
 
-.flor-evento-tl {
-
-    top: 0;
-
-    left: 0;
-
+.petalos-tl {
+    top: -5px;
+    left: -5px;
 }
 
 
 /* Arriba derecha */
 
-.flor-evento-tr {
-
-    top: 0;
-
-    right: 0;
+.petalos-tr {
+    top: -5px;
+    right: -5px;
 
     transform: scaleX(-1);
-
 }
 
 
 /* Abajo izquierda */
 
-.flor-evento-bl {
-
-    bottom: 0;
-
-    left: 0;
+.petalos-bl {
+    bottom: -5px;
+    left: -5px;
 
     transform: scaleY(-1);
-
 }
 
 
 /* Abajo derecha */
 
-.flor-evento-br {
-
-    bottom: 0;
-
-    right: 0;
+.petalos-br {
+    bottom: -5px;
+    right: -5px;
 
     transform: scale(-1, -1);
-
 }
 
 
-/* El contenido queda por encima de las flores */
+/* Todo el contenido queda por encima */
 
-.ceremonia .marco {
-
+.marco h2,
+.marco .adorno,
+.marco .info-evento,
+.marco .btn-evento,
+.marco .nota-evento {
     position: relative;
 
     z-index: 2;
-
 }
 
 @media (max-width: 600px) {
 
-    .flor-evento {
-
-        width: 150px;
-
+    .petalos {
+        width: 80px;
         opacity: 0.25;
-
     }
 
 }
