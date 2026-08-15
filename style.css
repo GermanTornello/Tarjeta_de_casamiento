@@ -754,73 +754,44 @@ CEREMONIA
     overflow: hidden;
 }
 
-
-/* Flores */
-
 .petalos {
     position: absolute;
-
     width: 120px;
-
     height: auto;
 
     pointer-events: none;
-
     user-select: none;
 
     opacity: 0.28;
-
     z-index: 0;
 }
 
-
-/* Arriba izquierda */
-
+/* Flor arriba izquierda */
 .petalos-tl {
     top: -5px;
     left: -5px;
 }
 
-
-/* Arriba derecha */
-
+/* Flor abajo derecha */
 .petalos-tr {
-    top: -5px;
+    bottom: -5px;
     right: -5px;
-
     transform: scaleX(-1);
 }
 
-
-/* Abajo izquierda */
-
-.petalos-bl {
-    bottom: -5px;
-    left: -5px;
-
-    transform: scaleY(-1);
-}
-
-
-/* Abajo derecha */
-
+/* Ocultar las otras dos */
+.petalos-bl,
 .petalos-br {
-    bottom: -5px;
-    right: -5px;
-
-    transform: scale(-1, -1);
+    display: none;
 }
 
-
-/* Todo el contenido queda por encima */
-
+/* Contenido por encima */
 .marco h2,
 .marco .adorno,
 .marco .info-evento,
 .marco .btn-evento,
 .marco .nota-evento {
     position: relative;
-
     z-index: 2;
 }
 
@@ -828,11 +799,9 @@ CEREMONIA
 
     .petalos {
         width: 80px;
-        opacity: 0.25;
     }
 
 }
-
 /*======================
 VESTIMENTA
 =======================*/
