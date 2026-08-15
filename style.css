@@ -1900,3 +1900,58 @@ MENU PREMIUM
     }
 
 }
+/* =================================
+   FLORES - DETALLES DEL EVENTO
+================================= */
+
+.marco {
+    position: relative;
+    overflow: hidden;
+}
+
+.petalos {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.28;
+    z-index: 1;
+}
+
+/* ARRIBA IZQUIERDA */
+.flor-arriba-izquierda {
+    top: 0;
+    left: 0;
+}
+
+/* ARRIBA DERECHA -> LA BAJAMOS */
+.flor-arriba-derecha {
+    bottom: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+
+/* ELIMINAMOS LAS DOS DE ABAJO */
+.flor-abajo-izquierda,
+.flor-abajo-derecha {
+    display: none;
+}
+
+/* El contenido de la carta queda por encima */
+.marco h2,
+.marco .adorno,
+.marco .info-evento,
+.marco .btn-evento,
+.marco .nota-evento {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 600px) {
+
+    .petalos {
+        width: 80px;
+    }
+
+}
