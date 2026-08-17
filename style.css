@@ -13,51 +13,148 @@ body{
     overflow-x:hidden;
 }
 
-/* ==========================
+/* ======================
    INTRO
-========================== */
+======================= */
 
 #intro {
     position: fixed;
     inset: 0;
 
+    background: url("img/fondo.jpg") center center / cover no-repeat;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background-image: url("img/fondo-intro.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
     z-index: 9999;
+
+    overflow: hidden;
 }
 
+/* Oscurecimiento MUY suave de la foto */
 #intro::before {
     content: "";
     position: absolute;
     inset: 0;
 
-    background: rgba(248, 245, 242, 0.45);
+    background: rgba(0, 0, 0, 0.12);
 
     z-index: 0;
 }
 
+/* Contenido */
 .intro-card {
     position: relative;
     z-index: 2;
 
-    width: min(90%, 600px);
+    width: 100%;
+    max-width: 900px;
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     text-align: center;
 
-    padding: 50px 30px;
+    color: white;
 
-    background: rgba(251, 248, 243, 0.82);
+    padding: 90px 20px 60px;
+}
 
-    border: 1px solid #d8c19d;
+/* TENÉS UNA INVITACIÓN */
 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+.intro-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 52px;
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+    margin: 0;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.35);
+}
+
+/* GISSELLA & MACIEL */
+
+.intro-card p {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 58px;
+
+    font-weight: 500;
+
+    letter-spacing: 2px;
+
+    color: white;
+
+    margin: 15px 0 0;
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.45);
+}
+
+/* ¿ESTÁS PREPARADO? */
+
+.intro-card .preparado {
+    margin-top: auto;
+    margin-bottom: 25px;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 27px;
+
+    letter-spacing: 2px;
+
+    color: white;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.45);
+}
+
+/* BOTÓN */
+
+.intro-card button {
+    padding: 16px 48px;
+
+    border: 1px solid rgba(255,255,255,.75);
+
+    border-radius: 40px;
+
+    cursor: pointer;
+
+    background: rgba(181,139,84,.80);
+
+    backdrop-filter: blur(4px);
+
+    color: white;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 22px;
+
+    letter-spacing: 1px;
+
+    transition: all .3s ease;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25);
+}
+
+.intro-card button:hover {
+    transform: translateY(-3px);
+
+    background: rgba(181,139,84,.95);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.30);
 }
 
 /* TÍTULO */
@@ -2027,35 +2124,28 @@ MENU PREMIUM
 
 @media (max-width: 600px) {
 
-    #intro {
-        background-position: 60% center;
-    }
-
     .intro-card {
-        width: 88%;
-
-        padding: 35px 20px;
-
-        background: rgba(251, 248, 243, 0.88);
+        padding: 70px 20px 45px;
     }
 
     .intro-card h2 {
-        font-size: 42px;
-    }
-
-    .intro-card .nombres-intro {
-        font-size: 30px;
+        font-size: 34px;
+        letter-spacing: 2px;
     }
 
     .intro-card p {
-        font-size: 21px;
+        font-size: 42px;
+        margin-top: 10px;
+    }
 
-        margin-bottom: 22px;
+    .intro-card .preparado {
+        font-size: 23px;
+        margin-bottom: 20px;
     }
 
     .intro-card button {
-        padding: 12px 32px;
-
-        font-size: 19px;
+        padding: 14px 38px;
+        font-size: 20px;
     }
+
 }
