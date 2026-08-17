@@ -21,7 +21,7 @@ body{
     position: fixed;
     inset: 0;
 
-    background: url("img/fondo.jpg") center center / cover no-repeat;
+    background: url("img/fondo-intro.jpg") center center / cover no-repeat;
 
     display: flex;
     justify-content: center;
@@ -32,107 +32,121 @@ body{
     overflow: hidden;
 }
 
-/* Oscurecimiento MUY suave de la foto */
+/* Overlay suave */
 #intro::before {
     content: "";
     position: absolute;
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.12);
+    background: rgba(0, 0, 0, 0.08);
 
     z-index: 0;
 }
 
-/* Contenido */
+
+/* ======================
+   CONTENIDO DEL INTRO
+======================= */
+
 .intro-card {
     position: relative;
     z-index: 2;
 
     width: 100%;
-    max-width: 900px;
-
     height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     text-align: center;
 
     color: white;
 
-    padding: 90px 20px 60px;
+    padding: 70px 20px 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: transparent;
 }
 
-/* TENÉS UNA INVITACIÓN */
+
+/* ======================
+   TENÉS UNA INVITACIÓN
+======================= */
 
 .intro-card h2 {
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: 52px;
+    font-size: 48px;
     font-weight: 500;
 
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 
     color: white;
 
     margin: 0;
 
     text-shadow:
-        0 2px 10px rgba(0,0,0,.35);
+        0 2px 8px rgba(0,0,0,.45);
 }
 
-/* GISSELLA & MACIEL */
+
+/* ======================
+   GISELLA & MACIEL
+======================= */
 
 .intro-card p {
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: 58px;
-
+    font-size: 55px;
     font-weight: 500;
 
     letter-spacing: 2px;
 
     color: white;
 
-    margin: 15px 0 0;
+    margin: 12px 0 0;
 
     text-shadow:
-        0 3px 15px rgba(0,0,0,.45);
+        0 2px 10px rgba(0,0,0,.5);
 }
 
-/* ¿ESTÁS PREPARADO? */
+
+/* ======================
+   ESPACIO AUTOMÁTICO
+======================= */
 
 .intro-card .preparado {
     margin-top: auto;
-    margin-bottom: 25px;
+
+    margin-bottom: 18px;
 
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: 27px;
+    font-size: 25px;
 
     letter-spacing: 2px;
 
     color: white;
 
     text-shadow:
-        0 2px 10px rgba(0,0,0,.45);
+        0 2px 8px rgba(0,0,0,.5);
 }
 
-/* BOTÓN */
+
+/* ======================
+   BOTÓN
+======================= */
 
 .intro-card button {
-    padding: 16px 48px;
+    padding: 15px 45px;
 
-    border: 1px solid rgba(255,255,255,.75);
+    border: 1px solid rgba(255,255,255,.8);
 
     border-radius: 40px;
 
     cursor: pointer;
 
-    background: rgba(181,139,84,.80);
-
-    backdrop-filter: blur(4px);
+    background: rgba(181,139,84,.90);
 
     color: white;
 
@@ -142,91 +156,52 @@ body{
 
     letter-spacing: 1px;
 
-    transition: all .3s ease;
-
     box-shadow:
-        0 8px 25px rgba(0,0,0,.25);
-}
-
-.intro-card button:hover {
-    transform: translateY(-3px);
-
-    background: rgba(181,139,84,.95);
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.30);
-}
-
-/* TÍTULO */
-
-.intro-card h2 {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 58px;
-
-    color: #8d6b44;
-
-    font-weight: 500;
-
-    margin-bottom: 10px;
-}
-
-/* NOMBRES */
-
-.intro-card .nombres-intro {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 38px;
-
-    color: #b58b54;
-
-    letter-spacing: 2px;
-
-    margin: 10px 0 18px;
-}
-
-/* TEXTO ¿ESTÁS PREPARADO? */
-
-.intro-card p {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 25px;
-
-    color: #777;
-
-    letter-spacing: 2px;
-
-    margin: 0 0 30px;
-}
-
-/* BOTÓN */
-
-.intro-card button {
-    padding: 15px 45px;
-
-    border: 1px solid #b58b54;
-
-    border-radius: 40px;
-
-    background: #b58b54;
-
-    color: white;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 21px;
-
-    letter-spacing: 1px;
-
-    cursor: pointer;
+        0 6px 20px rgba(0,0,0,.25);
 
     transition: .3s;
 }
 
 .intro-card button:hover {
-    background: #8d6b44;
+    transform: translateY(-3px);
 
-    transform: translateY(-2px);
+    background: rgba(181,139,84,1);
+}
+
+
+/* ======================
+   CELULAR
+======================= */
+
+@media (max-width: 600px) {
+
+    #intro {
+        background-position: center center;
+    }
+
+    .intro-card {
+        padding: 45px 15px 35px;
+    }
+
+    .intro-card h2 {
+        font-size: 35px;
+        letter-spacing: 1px;
+    }
+
+    .intro-card p {
+        font-size: 42px;
+        margin-top: 8px;
+    }
+
+    .intro-card .preparado {
+        font-size: 23px;
+        margin-bottom: 15px;
+    }
+
+    .intro-card button {
+        padding: 13px 38px;
+        font-size: 20px;
+    }
 }
 /*======================
 HERO
