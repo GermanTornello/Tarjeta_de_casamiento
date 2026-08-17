@@ -35,11 +35,10 @@ body{
 
 #intro::before {
     content: "";
-
     position: absolute;
     inset: 0;
 
-    background: rgba(248, 245, 242, 0.40);
+    background: rgba(248, 245, 242, 0.45);
 
     z-index: 0;
 }
@@ -48,7 +47,89 @@ body{
     position: relative;
     z-index: 2;
 
+    width: min(90%, 600px);
+
     text-align: center;
+
+    padding: 50px 30px;
+
+    background: rgba(251, 248, 243, 0.82);
+
+    border: 1px solid #d8c19d;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+}
+
+/* TÍTULO */
+
+.intro-card h2 {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 58px;
+
+    color: #8d6b44;
+
+    font-weight: 500;
+
+    margin-bottom: 10px;
+}
+
+/* NOMBRES */
+
+.intro-card .nombres-intro {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 38px;
+
+    color: #b58b54;
+
+    letter-spacing: 2px;
+
+    margin: 10px 0 18px;
+}
+
+/* TEXTO ¿ESTÁS PREPARADO? */
+
+.intro-card p {
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 25px;
+
+    color: #777;
+
+    letter-spacing: 2px;
+
+    margin: 0 0 30px;
+}
+
+/* BOTÓN */
+
+.intro-card button {
+    padding: 15px 45px;
+
+    border: 1px solid #b58b54;
+
+    border-radius: 40px;
+
+    background: #b58b54;
+
+    color: white;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 21px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.intro-card button:hover {
+    background: #8d6b44;
+
+    transform: translateY(-2px);
 }
 /*======================
 HERO
@@ -1939,4 +2020,42 @@ MENU PREMIUM
     align-items: center;
 
     z-index: 9999;
+}
+/* ==========================
+   INTRO - CELULAR
+========================== */
+
+@media (max-width: 600px) {
+
+    #intro {
+        background-position: center center;
+    }
+
+    .intro-card {
+        width: 88%;
+
+        padding: 35px 20px;
+
+        background: rgba(251, 248, 243, 0.88);
+    }
+
+    .intro-card h2 {
+        font-size: 42px;
+    }
+
+    .intro-card .nombres-intro {
+        font-size: 30px;
+    }
+
+    .intro-card p {
+        font-size: 21px;
+
+        margin-bottom: 22px;
+    }
+
+    .intro-card button {
+        padding: 12px 32px;
+
+        font-size: 19px;
+    }
 }
