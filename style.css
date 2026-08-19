@@ -1834,37 +1834,39 @@ MENU PREMIUM
 
 .contador .flor {
     position: absolute;
-    width: 260px;
     height: auto;
     pointer-events: none;
     z-index: 0;
 }
 
 /* Flor 1 - arriba izquierda */
-.flor1-contador {
+.contador .flor-arriba-izquierda {
+    width: 180px;
     top: 0;
     left: 0;
 }
 
 /* Flor 2 - arriba derecha */
-.flor2-contador {
+.contador .flor-arriba-derecha {
+    width: 180px;
     top: 0;
     right: 0;
     transform: scaleX(-1);
 }
 
 /* Flor 3 - abajo izquierda */
-.flor3-contador {
+.contador .flor-abajo-izquierda {
+    width: 180px;
     bottom: 0;
     left: 0;
 }
 
 /* Flor 4 - abajo derecha */
-.flor4-contador {
+.contador .flor-abajo-derecha {
+    width: 120px;
     bottom: 0;
     right: 0;
 }
-
 .contador h2,
 .contador .linea,
 .contador-grid {
