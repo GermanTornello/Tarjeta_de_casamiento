@@ -1859,10 +1859,7 @@ MENU PREMIUM
 }
 
 /* ELIMINAMOS LAS DOS DE ABAJO */
-.flor-abajo-izquierda,
-.flor-abajo-derecha {
-    display: none;
-}
+
 
 /* El contenido de la carta queda por encima */
 .marco h2,
