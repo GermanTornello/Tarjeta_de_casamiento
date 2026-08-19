@@ -1918,6 +1918,7 @@ MENU PREMIUM
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     text-align: center;
     color: white;
@@ -1925,6 +1926,8 @@ MENU PREMIUM
     padding: 70px 20px 45px;
 
     background: transparent;
+
+    transform: translateY(-70px);
 }
 
 /* ======================
@@ -2005,7 +2008,6 @@ MENU PREMIUM
 /* ======================
    CELULAR
 ======================= */
-
 @media (max-width: 600px) {
 
     #intro {
@@ -2014,6 +2016,7 @@ MENU PREMIUM
 
     .intro-card {
         padding: 55px 15px 35px;
+        transform: translateY(-70px);
     }
 
     .intro-card h2 {
@@ -2027,10 +2030,7 @@ MENU PREMIUM
     }
 
     .intro-card button {
-        margin-top: 28px;
-
         padding: 13px 38px;
-
         font-size: 20px;
     }
 }
