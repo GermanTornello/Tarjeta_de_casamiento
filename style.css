@@ -761,6 +761,22 @@ VESTIMENTA
     object-fit: contain;
 }
 
+/* Flor decorativa - Código de Vestimenta */
+
+.vestimenta .marco{
+    position:relative;
+}
+
+.florcita-vestimenta{
+    position:absolute;
+    width:120px;
+    height:auto;
+    top:15px;
+    left:15px;
+    z-index:1;
+    pointer-events:none;
+}
+
 /*======================
 REGALOS
 =======================*/
