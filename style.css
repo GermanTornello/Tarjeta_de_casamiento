@@ -675,7 +675,7 @@ CEREMONIA
    FLORES DETALLES DEL EVENTO
 ========================== */
 
-.marco {
+.petalos .marco {
     position: relative;
     overflow: hidden;
 }
@@ -692,23 +692,16 @@ CEREMONIA
     z-index: 0;
 }
 
-/* Flor arriba izquierda */
-.petalos-tl {
-    top: -5px;
-    left: -5px;
+
+.petalos-arriba-izquierda{
+    top:0;
+    left:0;
 }
 
-/* Flor abajo derecha */
-.petalos-tr {
-    bottom: -5px;
-    right: -5px;
-    transform: scaleX(-1);
-}
-
-/* Ocultar las otras dos */
-.petalos-bl,
-.petalos-br {
-    display: none;
+.petalos-abajo-derecha{
+    bottom:0;
+    right:0;
+    transform:rotate(180deg);
 }
 
 /* Contenido por encima */
