@@ -769,12 +769,30 @@ VESTIMENTA
 
 .florcita-vestimenta{
     position:absolute;
-    width:80px;
+    width:120px;
     height:auto;
-    top:15px;
-    left:15px;
     z-index:1;
     pointer-events:none;
+}
+
+.flor-arriba-izquierda{
+    top:15px;
+    left:15px;
+}
+
+.flor-arriba-derecha{
+    top:15px;
+    right:15px;
+}
+
+.flor-abajo-izquierda{
+    bottom:15px;
+    left:15px;
+}
+
+.flor-abajo-derecha{
+    bottom:15px;
+    right:15px;
 }
 
 /*======================
