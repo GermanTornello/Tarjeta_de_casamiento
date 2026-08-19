@@ -1857,14 +1857,14 @@ MENU PREMIUM
 /* Flor 3 - abajo izquierda */
 .contador .flor-abajo-izquierda {
     width: 180px;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
 }
 
 /* Flor 4 - abajo derecha */
 .contador .flor-abajo-derecha {
     width: 120px;
-    bottom: 0;
+    bottom: 20px;
     right: 0;
 }
 .contador h2,
