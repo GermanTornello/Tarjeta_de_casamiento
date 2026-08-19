@@ -1850,6 +1850,7 @@ MENU PREMIUM
 .flor-arriba-derecha {
     top: 0;
     right: 0;
+    transform: scaleX(-1);
 }
 
 /* Abajo izquierda */
