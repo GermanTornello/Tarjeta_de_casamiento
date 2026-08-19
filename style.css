@@ -872,6 +872,22 @@ REGALOS
 
 }
 
+/* Decoración pasto - Regalos */
+
+.regalos .marco{
+    position:relative;
+}
+
+.pasto-regalos{
+    position:absolute;
+    width:180px;
+    height:auto;
+    bottom:0;
+    left:0;
+    z-index:1;
+    pointer-events:none;
+}
+
 /*======================
 GALERÍA
 =======================*/
