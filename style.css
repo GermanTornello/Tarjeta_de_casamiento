@@ -1837,6 +1837,7 @@ MENU PREMIUM
     height: auto;
     pointer-events: none;
     z-index: 0;
+    opacity: 0.45;
 }
 
 /* Flor 1 - arriba izquierda */
