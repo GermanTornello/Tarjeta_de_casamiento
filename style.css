@@ -1008,6 +1008,8 @@ FINAL
 
     max-width:800px;
 
+    transform:translateY(-80px);
+
 }
 
 .final h2{
