@@ -1832,7 +1832,7 @@ MENU PREMIUM
     overflow: hidden;
 }
 
-.flor {
+.contador .flor {
     position: absolute;
     width: 260px;
     height: auto;
@@ -1840,27 +1840,27 @@ MENU PREMIUM
     z-index: 0;
 }
 
-/* Arriba izquierda */
-.flor-arriba-izquierda {
+/* Flor 1 - arriba izquierda */
+.flor1-contador {
     top: 0;
     left: 0;
 }
 
-/* Arriba derecha */
-.flor-arriba-derecha {
+/* Flor 2 - arriba derecha */
+.flor2-contador {
     top: 0;
     right: 0;
     transform: scaleX(-1);
 }
 
-/* Abajo izquierda */
-.flor-abajo-izquierda {
+/* Flor 3 - abajo izquierda */
+.flor3-contador {
     bottom: 0;
     left: 0;
 }
 
-/* Abajo derecha */
-.flor-abajo-derecha {
+/* Flor 4 - abajo derecha */
+.flor4-contador {
     bottom: 0;
     right: 0;
 }
