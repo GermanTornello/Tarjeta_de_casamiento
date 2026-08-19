@@ -1850,21 +1850,18 @@ MENU PREMIUM
 .flor-arriba-derecha {
     top: 0;
     right: 0;
-    transform: scaleX(-1);
 }
 
 /* Abajo izquierda */
 .flor-abajo-izquierda {
     bottom: 0;
     left: 0;
-    transform: scaleY(-1);
 }
 
 /* Abajo derecha */
 .flor-abajo-derecha {
     bottom: 0;
     right: 0;
-    transform: scale(-1, -1);
 }
 
 .contador h2,
