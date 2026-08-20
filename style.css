@@ -2165,3 +2165,13 @@ MENU PREMIUM
     }
 
 }
+
+/* ================================
+   DOBLE BORDE - CONFIRMAR ASISTENCIA
+================================ */
+
+.confirmacion .marco {
+    border: 1px solid #d8c19d;
+    outline: 1px solid #d8c19d;
+    outline-offset: 2px;
+}
