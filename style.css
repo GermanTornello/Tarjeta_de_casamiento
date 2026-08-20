@@ -1048,20 +1048,17 @@ FINAL
 
 .final {
     min-height: 100vh;
-
     background: #f7f3ed;
 
     display: flex;
-
     justify-content: center;
-
     align-items: center;
 
-    padding: 80px 40px;
+    padding: 40px;
 
     text-align: center;
 
-    margin-top: 0;
+    margin-top: -120px;
 }
 
 .final-contenido {
@@ -1074,8 +1071,13 @@ FINAL
 
 @media (max-width: 768px) {
 
+    .final {
+        margin-top: -180px;
+        padding-top: 20px;
+    }
+
     .final-contenido {
-        transform: translateY(-210px);
+        transform: translateY(0);
         width: 100%;
     }
 
