@@ -1068,7 +1068,16 @@ FINAL
 
     max-width: 800px;
 
-    transform: translateY(0);
+    transform: translateY(-40px);
+
+}
+
+@media (max-width: 768px) {
+
+    .final-contenido {
+        transform: translateY(-70px);
+        width: 100%;
+    }
 
 }
 
