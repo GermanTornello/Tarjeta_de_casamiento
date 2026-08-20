@@ -1046,29 +1046,29 @@ CONFIRMAR
 FINAL
 =======================*/
 
-.final{
-    min-height:100vh;
+.final {
+    min-height: 100vh;
 
-    background:#f7f3ed;
+    background: #f7f3ed;
 
-    display:flex;
+    display: flex;
 
-    justify-content:center;
+    justify-content: center;
 
-    align-items:center;
+    align-items: center;
 
-    padding:40px;
+    padding: 80px 40px;
 
-    text-align:center;
+    text-align: center;
 
-    margin-top:-120px;
+    margin-top: 0;
 }
 
-.final-contenido{
+.final-contenido {
 
-    max-width:800px;
+    max-width: 800px;
 
-    transform:translateY(-180px);
+    transform: translateY(0);
 
 }
 
@@ -1258,20 +1258,18 @@ RESPONSIVE
 CONFIRMAR ASISTENCIA
 =======================*/
 
-.confirmacion{
+.confirmacion {
+    min-height: 55vh;
 
-    min-height:55vh;
+    background: #f7f3ed;
 
-    background:#f7f3ed;
+    display: flex;
 
-    display:flex;
+    justify-content: center;
 
-    justify-content:center;
+    align-items: center;
 
-    align-items:center;
-
-    padding:60px 20px;
-
+    padding: 60px 20px;
 }
 
 .texto-confirmacion{
@@ -2190,23 +2188,4 @@ MENU PREMIUM
 .btn-resetear:hover {
     background: #b58b54;
     color: white;
-}
-
-/* =====================================
-   SEPARACIÓN CONFIRMACIÓN / FINAL - PC
-===================================== */
-
-@media (min-width: 769px) {
-
-    .confirmacion {
-        margin-bottom: 180px;
-    }
-
-    .final {
-        margin-top: 0 !important;
-        min-height: 70vh;
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-
 }
