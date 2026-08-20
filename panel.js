@@ -317,34 +317,30 @@ function filtrarFamilias() {
         .value
         .toLowerCase();
 
+    const filas = document.querySelectorAll("#tabla tr");
 
-    const filas = document.querySelectorAll(
-        "#tabla tr"
-    );
+    for (let i = 1; i < filas.length; i += 2) {
 
+        const filaFamilia = filas[i];
+        const filaDetalle = filas[i + 1];
 
-    filas.forEach((fila, index) => {
-
-        if (index === 0) return;
-
-
-        const texto = fila.textContent.toLowerCase();
-
+        const texto = filaFamilia.textContent.toLowerCase();
 
         if (texto.includes(filtro)) {
 
-            fila.style.display = "";
+            filaFamilia.style.display = "";
+            filaDetalle.style.display = "none";
 
         } else {
 
-            fila.style.display = "none";
+            filaFamilia.style.display = "none";
+            filaDetalle.style.display = "none";
 
         }
 
-    });
+    }
 
 }
-
 
 
 // =====================================
@@ -353,30 +349,30 @@ function filtrarFamilias() {
 
 function filtrarEstado(estado) {
 
-    const filas = document.querySelectorAll(
-        "#tabla tr"
-    );
+    const filas = document.querySelectorAll("#tabla tr");
 
+    for (let i = 1; i < filas.length; i += 2) {
 
-    filas.forEach((fila, index) => {
+        const filaFamilia = filas[i];
+        const filaDetalle = filas[i + 1];
 
-        if (index === 0) return;
+        const texto = filaFamilia.textContent;
 
+        if (texto.includes(estado)) {
 
-        if (fila.textContent.includes(estado)) {
-
-            fila.style.display = "";
+            filaFamilia.style.display = "";
+            filaDetalle.style.display = "none";
 
         } else {
 
-            fila.style.display = "none";
+            filaFamilia.style.display = "none";
+            filaDetalle.style.display = "none";
 
         }
 
-    });
+    }
 
 }
-
 
 
 // =====================================
@@ -385,19 +381,19 @@ function filtrarEstado(estado) {
 
 function mostrarTodas() {
 
-    const filas = document.querySelectorAll(
-        "#tabla tr"
-    );
+    const filas = document.querySelectorAll("#tabla tr");
 
+    for (let i = 1; i < filas.length; i += 2) {
 
-    filas.forEach(fila => {
+        const filaFamilia = filas[i];
+        const filaDetalle = filas[i + 1];
 
-        fila.style.display = "";
+        filaFamilia.style.display = "";
+        filaDetalle.style.display = "none";
 
-    });
+    }
 
 }
-
 
 
 // =====================================
