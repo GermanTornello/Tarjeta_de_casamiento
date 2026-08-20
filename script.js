@@ -12,11 +12,20 @@ const intro = document.getElementById("intro");
 const hero = document.getElementById("hero");
 const abrir = document.getElementById("abrir");
 
-if (abrir) {
-    abrir.addEventListener("click", () => {
-        intro.style.display = "none";
-        hero.style.display = "flex";
-    });
+if (abrir) { 
+    abrir.addEventListener("click", () => { 
+        intro.style.display = "none"; 
+        hero.style.display = "flex"; 
+
+        if (window.innerWidth <= 600) {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: hero.offsetHeight * 0.30,
+                    behavior: "smooth"
+                });
+            }, 100);
+        }
+    }); 
 }
 
 // ==============================
