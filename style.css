@@ -1075,7 +1075,7 @@ FINAL
 @media (max-width: 768px) {
 
     .final-contenido {
-        transform: translateY(-190px);
+        transform: translateY(-210px);
         width: 100%;
     }
 
