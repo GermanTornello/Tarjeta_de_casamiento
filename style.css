@@ -760,7 +760,7 @@ VESTIMENTA
     position:relative;
 }
 
-.florcita-vestimenta{
+.vestimenta .florcita-vestimenta{
     position:absolute;
     width:80px;
     height:auto;
@@ -769,22 +769,27 @@ VESTIMENTA
     pointer-events:none;
 }
 
-.flor-arriba-izquierda{
+
+/* Arriba izquierda */
+.vestimenta .flor-arriba-izquierda{
     top:15px;
     left:15px;
 }
 
-.flor-arriba-derecha{
+/* Arriba derecha */
+.vestimenta .flor-arriba-derecha{
     top:15px;
     right:15px;
 }
 
-.flor-abajo-izquierda{
+/* Abajo izquierda */
+.vestimenta .flor-abajo-izquierda{
     bottom:15px;
     left:15px;
 }
 
-.flor-abajo-derecha{
+/* Abajo derecha */
+.vestimenta .flor-abajo-derecha{
     bottom:15px;
     right:15px;
 }
