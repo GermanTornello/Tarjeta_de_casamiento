@@ -305,7 +305,6 @@ function mostrarInvitados(index) {
 }
 
 
-
 // =====================================
 // BUSCAR FAMILIAS
 // =====================================
@@ -319,26 +318,25 @@ function filtrarFamilias() {
 
     const filas = document.querySelectorAll("#tabla tr");
 
-    for (let i = 1; i < filas.length; i += 2) {
+    filas.forEach((fila, index) => {
 
-        const filaFamilia = filas[i];
-        const filaDetalle = filas[i + 1];
+        if (index === 0) return;
 
-        const texto = filaFamilia.textContent.toLowerCase();
-
-        if (texto.includes(filtro)) {
-
-            filaFamilia.style.display = "";
-            filaDetalle.style.display = "none";
-
-        } else {
-
-            filaFamilia.style.display = "none";
-            filaDetalle.style.display = "none";
-
+        // Las filas de detalle siempre permanecen ocultas
+        if (fila.id.startsWith("detalle-")) {
+            fila.style.display = "none";
+            return;
         }
 
-    }
+        const texto = fila.textContent.toLowerCase();
+
+        if (texto.includes(filtro)) {
+            fila.style.display = "";
+        } else {
+            fila.style.display = "none";
+        }
+
+    });
 
 }
 
@@ -351,26 +349,23 @@ function filtrarEstado(estado) {
 
     const filas = document.querySelectorAll("#tabla tr");
 
-    for (let i = 1; i < filas.length; i += 2) {
+    filas.forEach((fila, index) => {
 
-        const filaFamilia = filas[i];
-        const filaDetalle = filas[i + 1];
+        if (index === 0) return;
 
-        const texto = filaFamilia.textContent;
-
-        if (texto.includes(estado)) {
-
-            filaFamilia.style.display = "";
-            filaDetalle.style.display = "none";
-
-        } else {
-
-            filaFamilia.style.display = "none";
-            filaDetalle.style.display = "none";
-
+        // Las filas de detalle SIEMPRE permanecen ocultas
+        if (fila.id.startsWith("detalle-")) {
+            fila.style.display = "none";
+            return;
         }
 
-    }
+        if (fila.textContent.includes(estado)) {
+            fila.style.display = "";
+        } else {
+            fila.style.display = "none";
+        }
+
+    });
 
 }
 
@@ -383,18 +378,22 @@ function mostrarTodas() {
 
     const filas = document.querySelectorAll("#tabla tr");
 
-    for (let i = 1; i < filas.length; i += 2) {
+    filas.forEach((fila, index) => {
 
-        const filaFamilia = filas[i];
-        const filaDetalle = filas[i + 1];
+        if (index === 0) return;
 
-        filaFamilia.style.display = "";
-        filaDetalle.style.display = "none";
+        // Las filas de detalle siguen cerradas
+        if (fila.id.startsWith("detalle-")) {
+            fila.style.display = "none";
+            return;
+        }
 
-    }
+        // Mostrar solamente las familias
+        fila.style.display = "";
+
+    });
 
 }
-
 
 // =====================================
 // AGREGAR CAMPOS DE INVITADOS
