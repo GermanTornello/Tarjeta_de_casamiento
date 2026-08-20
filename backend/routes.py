@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, current_app
 
 from conexion import db
 from models import Familia, Invitado
@@ -15,7 +15,7 @@ def login_admin():
 
     password = datos.get("password")
 
-    if password == "Boda2026!":
+    if password == current_app.config["ADMIN_PASSWORD"]:
         return jsonify({
             "mensaje": "Login correcto"
         }), 200
@@ -23,7 +23,6 @@ def login_admin():
     return jsonify({
         "error": "Contraseña incorrecta"
     }), 401
-
 
 @api.route("/buscar/<nombre>")
 def buscar(nombre):
