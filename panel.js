@@ -1,12 +1,21 @@
+// =====================================
+// CARGAR PANEL
+// =====================================
+
 cargar();
 
 async function cargar() {
 
     try {
 
+        // ==============================
+        // ESTADÍSTICAS
+        // ==============================
+
         const stats = await fetch(
-    "https://tarjetadecasamiento-production.up.railway.app/estadisticas"
-);
+            "https://tarjetadecasamiento-production.up.railway.app/estadisticas"
+        );
+
         const datos = await stats.json();
 
         document.getElementById("estadisticas").innerHTML = `
@@ -17,11 +26,21 @@ async function cargar() {
             <br>
         `;
 
+
+        // ==============================
+        // OBTENER FAMILIAS
+        // ==============================
+
         const respuesta = await fetch(
-    "https://tarjetadecasamiento-production.up.railway.app/admin"
-);
+            "https://tarjetadecasamiento-production.up.railway.app/admin"
+        );
 
         const familias = await respuesta.json();
+
+
+        // ==============================
+        // TABLA
+        // ==============================
 
         let tabla = `
             <tr>
@@ -29,9 +48,10 @@ async function cargar() {
                 <th>Invitados</th>
                 <th>Confirmados</th>
                 <th>Estado</th>
-                <th>Detalle</th>
+                <th>Acciones</th>
             </tr>
         `;
+
 
         familias.forEach((f, index) => {
 
@@ -55,19 +75,31 @@ async function cargar() {
 
             }
 
+
             tabla += `
+
+                <!-- FAMILIA -->
+
                 <tr>
-                    <td>${f.familia}</td>
 
-                    <td>${f.cantidad}</td>
+                    <td>
+                        ${f.familia}
+                    </td>
 
-                    <td>${f.confirmados}/${f.cantidad}</td>
+                    <td>
+                        ${f.cantidad}
+                    </td>
+
+                    <td>
+                        ${f.confirmados}/${f.cantidad}
+                    </td>
 
                     <td style="color:${color};font-weight:bold;">
                         ${estado}
                     </td>
 
                     <td>
+
                         <button
                             onclick="mostrarInvitados(${index})"
                             style="
@@ -77,17 +109,56 @@ async function cargar() {
                                 background:#b58b54;
                                 color:white;
                                 cursor:pointer;
+                                margin:3px;
                             "
                         >
                             Ver invitados
                         </button>
+
+
+                        <button
+                            onclick="editarFamilia(${f.id})"
+                            style="
+                                padding:8px 16px;
+                                border:none;
+                                border-radius:20px;
+                                background:#777;
+                                color:white;
+                                cursor:pointer;
+                                margin:3px;
+                            "
+                        >
+                            ✏️ Editar
+                        </button>
+
+
+                        <button
+                            onclick="eliminarFamilia(${f.id})"
+                            style="
+                                padding:8px 16px;
+                                border:none;
+                                border-radius:20px;
+                                background:#b54b4b;
+                                color:white;
+                                cursor:pointer;
+                                margin:3px;
+                            "
+                        >
+                            🗑️ Eliminar
+                        </button>
+
                     </td>
+
                 </tr>
+
+
+                <!-- DETALLE DE FAMILIA -->
 
                 <tr
                     id="detalle-${index}"
                     style="display:none;"
                 >
+
                     <td colspan="5">
 
                         <div style="
@@ -104,6 +175,7 @@ async function cargar() {
                                 ${f.familia}
                             </h3>
 
+
                             ${f.integrantes.map(invitado => `
 
                                 <div style="
@@ -116,9 +188,11 @@ async function cargar() {
                                     flex-wrap:wrap;
                                 ">
 
+
                                     <strong>
                                         ${invitado.nombre}
                                     </strong>
+
 
                                     <span>
                                         ${
@@ -128,6 +202,7 @@ async function cargar() {
                                         }
                                     </span>
 
+
                                     <span>
                                         ${
                                             invitado.asiste
@@ -136,22 +211,64 @@ async function cargar() {
                                         }
                                     </span>
 
+
+                                    <div>
+
+                                        <button
+                                            onclick="editarInvitado(${invitado.id})"
+                                            style="
+                                                padding:6px 12px;
+                                                border:none;
+                                                border-radius:15px;
+                                                background:#777;
+                                                color:white;
+                                                cursor:pointer;
+                                                margin:2px;
+                                            "
+                                        >
+                                            ✏️
+                                        </button>
+
+
+                                        <button
+                                            onclick="eliminarInvitado(${invitado.id})"
+                                            style="
+                                                padding:6px 12px;
+                                                border:none;
+                                                border-radius:15px;
+                                                background:#b54b4b;
+                                                color:white;
+                                                cursor:pointer;
+                                                margin:2px;
+                                            "
+                                        >
+                                            🗑️
+                                        </button>
+
+                                    </div>
+
                                 </div>
 
                             `).join("")}
 
+
                         </div>
 
                     </td>
+
                 </tr>
+
             `;
 
         });
 
+
         document.getElementById("tabla").innerHTML = tabla;
 
-        // Guardamos las familias para poder abrir sus detalles
+
+        // Guardamos las familias
         window.familiasAdmin = familias;
+
 
     } catch (error) {
 
@@ -164,13 +281,16 @@ async function cargar() {
 }
 
 
+
 // =====================================
 // MOSTRAR / OCULTAR INVITADOS
 // =====================================
 
 function mostrarInvitados(index) {
 
-    const detalle = document.getElementById(`detalle-${index}`);
+    const detalle = document.getElementById(
+        `detalle-${index}`
+    );
 
     if (detalle.style.display === "none") {
 
@@ -185,6 +305,7 @@ function mostrarInvitados(index) {
 }
 
 
+
 // =====================================
 // BUSCAR FAMILIAS
 // =====================================
@@ -196,13 +317,19 @@ function filtrarFamilias() {
         .value
         .toLowerCase();
 
-    const filas = document.querySelectorAll("#tabla tr");
+
+    const filas = document.querySelectorAll(
+        "#tabla tr"
+    );
+
 
     filas.forEach((fila, index) => {
 
         if (index === 0) return;
 
+
         const texto = fila.textContent.toLowerCase();
+
 
         if (texto.includes(filtro)) {
 
@@ -219,17 +346,22 @@ function filtrarFamilias() {
 }
 
 
+
 // =====================================
 // FILTRAR POR ESTADO
 // =====================================
 
 function filtrarEstado(estado) {
 
-    const filas = document.querySelectorAll("#tabla tr");
+    const filas = document.querySelectorAll(
+        "#tabla tr"
+    );
+
 
     filas.forEach((fila, index) => {
 
         if (index === 0) return;
+
 
         if (fila.textContent.includes(estado)) {
 
@@ -246,13 +378,17 @@ function filtrarEstado(estado) {
 }
 
 
+
 // =====================================
 // MOSTRAR TODAS
 // =====================================
 
 function mostrarTodas() {
 
-    const filas = document.querySelectorAll("#tabla tr");
+    const filas = document.querySelectorAll(
+        "#tabla tr"
+    );
+
 
     filas.forEach(fila => {
 
@@ -261,22 +397,36 @@ function mostrarTodas() {
     });
 
 }
+
+
+
 // =====================================
 // AGREGAR CAMPOS DE INVITADOS
 // =====================================
 
 function agregarCampoInvitado() {
 
-    const lista = document.getElementById("listaInvitados");
+    const lista = document.getElementById(
+        "listaInvitados"
+    );
+
 
     const input = document.createElement("input");
 
+
     input.type = "text";
-    input.className = "input-confirmar invitado-input";
-    input.placeholder = "Nombre del invitado";
+
+    input.className =
+        "input-confirmar invitado-input";
+
+    input.placeholder =
+        "Nombre del invitado";
+
 
     lista.appendChild(input);
+
 }
+
 
 
 // =====================================
@@ -290,18 +440,24 @@ async function guardarFamilia() {
         .value
         .trim();
 
+
     const inputs = document.querySelectorAll(
         ".invitado-input"
     );
 
+
     const invitados = [];
+
 
     inputs.forEach(input => {
 
         const nombre = input.value.trim();
 
+
         if (nombre !== "") {
+
             invitados.push(nombre);
+
         }
 
     });
@@ -309,19 +465,25 @@ async function guardarFamilia() {
 
     if (familia === "") {
 
-        document.getElementById("mensajeFamilia").innerHTML =
+        document.getElementById(
+            "mensajeFamilia"
+        ).innerHTML =
             "⚠️ Escribí el nombre de la familia.";
 
         return;
+
     }
 
 
     if (invitados.length === 0) {
 
-        document.getElementById("mensajeFamilia").innerHTML =
+        document.getElementById(
+            "mensajeFamilia"
+        ).innerHTML =
             "⚠️ Agregá al menos un invitado.";
 
         return;
+
     }
 
 
@@ -330,6 +492,7 @@ async function guardarFamilia() {
         const respuesta = await fetch(
             "https://tarjetadecasamiento-production.up.railway.app/agregar_familia",
             {
+
                 method: "POST",
 
                 headers: {
@@ -343,6 +506,7 @@ async function guardarFamilia() {
                     invitados: invitados
 
                 })
+
             }
         );
 
@@ -352,23 +516,32 @@ async function guardarFamilia() {
 
         if (!respuesta.ok) {
 
-            document.getElementById("mensajeFamilia").innerHTML =
-                "❌ " + (datos.error || "No se pudo guardar.");
+            document.getElementById(
+                "mensajeFamilia"
+            ).innerHTML =
+                "❌ " +
+                (datos.error ||
+                "No se pudo guardar.");
 
             return;
+
         }
 
 
-        document.getElementById("mensajeFamilia").innerHTML =
+        document.getElementById(
+            "mensajeFamilia"
+        ).innerHTML =
             "✅ Familia agregada correctamente.";
 
 
-        // Limpiar familia
-        document.getElementById("nombreFamilia").value = "";
+        document.getElementById(
+            "nombreFamilia"
+        ).value = "";
 
 
-        // Dejar solamente un campo de invitado
-        document.getElementById("listaInvitados").innerHTML = `
+        document.getElementById(
+            "listaInvitados"
+        ).innerHTML = `
 
             <input
                 type="text"
@@ -379,7 +552,6 @@ async function guardarFamilia() {
         `;
 
 
-        // Actualizar automáticamente el panel
         await cargar();
 
 
@@ -387,8 +559,393 @@ async function guardarFamilia() {
 
         console.error(error);
 
-        document.getElementById("mensajeFamilia").innerHTML =
+
+        document.getElementById(
+            "mensajeFamilia"
+        ).innerHTML =
             "❌ No se pudo conectar con el servidor.";
+
+    }
+
+}
+
+
+
+// =====================================
+// EDITAR FAMILIA
+// =====================================
+
+async function editarFamilia(id) {
+
+    const familia = window.familiasAdmin.find(
+        f => f.id === id
+    );
+
+
+    if (!familia) {
+
+        alert("No se encontró la familia.");
+
+        return;
+
+    }
+
+
+    const nuevoNombre = prompt(
+        "Editar nombre de la familia:",
+        familia.familia
+    );
+
+
+    if (nuevoNombre === null) return;
+
+
+    const nombre = nuevoNombre.trim();
+
+
+    if (nombre === "") {
+
+        alert("El nombre no puede estar vacío.");
+
+        return;
+
+    }
+
+
+    try {
+
+        const respuesta = await fetch(
+            `https://tarjetadecasamiento-production.up.railway.app/editar_familia/${id}`,
+            {
+
+                method: "PUT",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    familia: nombre
+
+                })
+
+            }
+        );
+
+
+        const datos = await respuesta.json();
+
+
+        if (!respuesta.ok) {
+
+            alert(
+                datos.error ||
+                "No se pudo editar la familia."
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "✅ Familia editada correctamente."
+        );
+
+
+        await cargar();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "No se pudo conectar con el servidor."
+        );
+
+    }
+
+}
+
+
+
+// =====================================
+// ELIMINAR FAMILIA
+// =====================================
+
+async function eliminarFamilia(id) {
+
+    const familia = window.familiasAdmin.find(
+        f => f.id === id
+    );
+
+
+    if (!familia) {
+
+        alert("No se encontró la familia.");
+
+        return;
+
+    }
+
+
+    const confirmar = confirm(
+        `¿Seguro que querés eliminar la familia "${familia.familia}"?\n\nTambién se eliminarán todos sus invitados.`
+    );
+
+
+    if (!confirmar) return;
+
+
+    try {
+
+        const respuesta = await fetch(
+            `https://tarjetadecasamiento-production.up.railway.app/eliminar_familia/${id}`,
+            {
+
+                method: "DELETE"
+
+            }
+        );
+
+
+        const datos = await respuesta.json();
+
+
+        if (!respuesta.ok) {
+
+            alert(
+                datos.error ||
+                "No se pudo eliminar la familia."
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "✅ Familia eliminada correctamente."
+        );
+
+
+        await cargar();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "No se pudo conectar con el servidor."
+        );
+
+    }
+
+}
+
+
+
+// =====================================
+// EDITAR INVITADO
+// =====================================
+
+async function editarInvitado(id) {
+
+    let invitadoEncontrado = null;
+
+
+    window.familiasAdmin.forEach(familia => {
+
+        familia.integrantes.forEach(invitado => {
+
+            if (invitado.id === id) {
+
+                invitadoEncontrado = invitado;
+
+            }
+
+        });
+
+    });
+
+
+    if (!invitadoEncontrado) {
+
+        alert("No se encontró el invitado.");
+
+        return;
+
+    }
+
+
+    const nuevoNombre = prompt(
+        "Editar nombre del invitado:",
+        invitadoEncontrado.nombre
+    );
+
+
+    if (nuevoNombre === null) return;
+
+
+    const nombre = nuevoNombre.trim();
+
+
+    if (nombre === "") {
+
+        alert(
+            "El nombre no puede estar vacío."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const respuesta = await fetch(
+            `https://tarjetadecasamiento-production.up.railway.app/editar_invitado/${id}`,
+            {
+
+                method: "PUT",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    nombre: nombre
+
+                })
+
+            }
+        );
+
+
+        const datos = await respuesta.json();
+
+
+        if (!respuesta.ok) {
+
+            alert(
+                datos.error ||
+                "No se pudo editar el invitado."
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "✅ Invitado editado correctamente."
+        );
+
+
+        await cargar();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "No se pudo conectar con el servidor."
+        );
+
+    }
+
+}
+
+
+
+// =====================================
+// ELIMINAR INVITADO
+// =====================================
+
+async function eliminarInvitado(id) {
+
+    let invitadoEncontrado = null;
+
+
+    window.familiasAdmin.forEach(familia => {
+
+        familia.integrantes.forEach(invitado => {
+
+            if (invitado.id === id) {
+
+                invitadoEncontrado = invitado;
+
+            }
+
+        });
+
+    });
+
+
+    if (!invitadoEncontrado) {
+
+        alert("No se encontró el invitado.");
+
+        return;
+
+    }
+
+
+    const confirmar = confirm(
+        `¿Seguro que querés eliminar a "${invitadoEncontrado.nombre}"?`
+    );
+
+
+    if (!confirmar) return;
+
+
+    try {
+
+        const respuesta = await fetch(
+            `https://tarjetadecasamiento-production.up.railway.app/eliminar_invitado/${id}`,
+            {
+
+                method: "DELETE"
+
+            }
+        );
+
+
+        const datos = await respuesta.json();
+
+
+        if (!respuesta.ok) {
+
+            alert(
+                datos.error ||
+                "No se pudo eliminar el invitado."
+            );
+
+            return;
+
+        }
+
+
+        alert(
+            "✅ Invitado eliminado correctamente."
+        );
+
+
+        await cargar();
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "No se pudo conectar con el servidor."
+        );
 
     }
 
