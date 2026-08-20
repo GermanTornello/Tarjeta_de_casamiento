@@ -1048,12 +1048,19 @@ FINAL
 
 .final {
     min-height: 100vh;
+
     background: #f7f3ed;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
-    padding: 50px 40px;
+
+    padding: 80px 40px;
+
     text-align: center;
+
     margin-top: 0;
 }
 
@@ -2181,4 +2188,24 @@ MENU PREMIUM
 .btn-resetear:hover {
     background: #b58b54;
     color: white;
+}
+
+/* =================================
+   ACERCAR GRACIAS A CONFIRMAR
+================================= */
+
+@media (min-width: 769px) {
+
+    .final {
+        margin-top: -40px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .final {
+        margin-top: -70px;
+    }
+
 }
