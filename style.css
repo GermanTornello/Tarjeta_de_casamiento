@@ -2094,3 +2094,53 @@ MENU PREMIUM
         font-size: 20px;
     }
 }
+/* =================================
+   FLORES - DETALLES DEL EVENTO
+================================= */
+
+.ceremonia .marco {
+    position: relative;
+    overflow: hidden;
+}
+
+.ceremonia .petalos-detalle {
+    position: absolute;
+    width: 120px;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.28;
+    z-index: 1;
+}
+
+/* ARRIBA IZQUIERDA */
+.ceremonia .petalos-detalle-tl {
+    top: 0;
+    left: 0;
+}
+
+/* ABAJO DERECHA */
+.ceremonia .petalos-detalle-br {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* CONTENIDO POR ENCIMA */
+.ceremonia .marco h2,
+.ceremonia .marco .adorno,
+.ceremonia .marco .info-evento,
+.ceremonia .marco .btn-evento,
+.ceremonia .marco .nota-evento {
+    position: relative;
+    z-index: 2;
+}
+
+/* CELULAR */
+@media (max-width: 600px) {
+
+    .ceremonia .petalos-detalle {
+        width: 80px;
+    }
+
+}
