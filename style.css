@@ -1047,7 +1047,6 @@ FINAL
 =======================*/
 
 .final{
-
     min-height:100vh;
 
     background:#f7f3ed;
@@ -1062,13 +1061,14 @@ FINAL
 
     text-align:center;
 
+    margin-top:-120px;
 }
 
 .final-contenido{
 
     max-width:800px;
 
-    transform:translateY(-60px);
+    transform:translateY(-180px);
 
 }
 
