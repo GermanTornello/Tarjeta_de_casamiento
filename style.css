@@ -1062,17 +1062,14 @@ FINAL
 }
 
 .final-contenido {
-
     max-width: 800px;
-
     transform: translateY(-40px);
-
 }
 
 @media (max-width: 768px) {
 
     .final {
-        margin-top: -180px;
+        margin-top: -300px;
         padding-top: 20px;
     }
 
