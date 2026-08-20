@@ -2193,10 +2193,14 @@ MENU PREMIUM
 }
 
 /* =====================================
-   AJUSTE FINAL - COMPUTADORA
+   SEPARACIÓN CONFIRMACIÓN / FINAL - PC
 ===================================== */
 
 @media (min-width: 769px) {
+
+    .confirmacion {
+        margin-bottom: 180px;
+    }
 
     .final {
         margin-top: 0 !important;
