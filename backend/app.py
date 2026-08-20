@@ -18,10 +18,9 @@ def inicio():
 CORS(
     app,
     origins=["https://germantornello.github.io"],
-    methods=["GET", "POST", "OPTIONS"],
+    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["Content-Type"]
 )
-
 
 # Obtener la URL de la base de datos desde Railway
 database_url = os.getenv("MYSQL_URL")
