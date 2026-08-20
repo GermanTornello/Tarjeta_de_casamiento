@@ -2175,3 +2175,19 @@ MENU PREMIUM
     outline: 1px solid #d8c19d;
     outline-offset: 2px;
 }
+
+.btn-resetear {
+    padding: 10px 20px;
+    border: 1px solid #b58b54;
+    border-radius: 25px;
+    background: transparent;
+    color: #b58b54;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-resetear:hover {
+    background: #b58b54;
+    color: white;
+}

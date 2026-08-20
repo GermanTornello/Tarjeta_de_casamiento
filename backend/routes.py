@@ -385,3 +385,18 @@ def eliminar_familia(familia_id):
     return jsonify({
         "mensaje": "Familia eliminada correctamente"
     })
+
+@api.route("/resetear_confirmaciones", methods=["POST"])
+def resetear_confirmaciones():
+
+    invitados = Invitado.query.all()
+
+    for invitado in invitados:
+        invitado.asiste = False
+        invitado.menu = "Normal"
+
+    db.session.commit()
+
+    return jsonify({
+        "mensaje": "Todas las confirmaciones fueron reseteadas correctamente."
+    }), 200

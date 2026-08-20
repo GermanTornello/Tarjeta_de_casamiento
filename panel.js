@@ -945,3 +945,54 @@ async function eliminarInvitado(id) {
     }
 
 }
+// =====================================
+// RESETEAR CONFIRMACIONES
+// =====================================
+
+async function resetearConfirmaciones() {
+
+    const confirmar = confirm(
+        "⚠️ ¿Estás seguro de que querés resetear TODAS las confirmaciones?"
+    );
+
+    if (!confirmar) {
+        return;
+    }
+
+    try {
+
+        const respuesta = await fetch(
+            "https://tarjetadecasamiento-production.up.railway.app/resetear_confirmaciones",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+        );
+
+        const datos = await respuesta.json();
+
+        if (!respuesta.ok) {
+
+            alert(
+                "❌ " + (datos.error || "No se pudieron resetear las confirmaciones.")
+            );
+
+            return;
+        }
+
+        alert("✅ " + datos.mensaje);
+
+        // Recargar estadísticas y familias
+        await cargar();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("❌ No se pudo conectar con el servidor.");
+
+    }
+
+}
