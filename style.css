@@ -1859,7 +1859,7 @@ MENU PREMIUM
     width:180px;
     top:0;
     right:0;
-    transform:rotateY(180deg);
+    transform:none;
 }
 
 /* Flor 3 - abajo izquierda */
