@@ -2152,3 +2152,16 @@ MENU PREMIUM
     }
 
 }
+
+/* ================================
+   GRACIAS - CELULAR
+================================ */
+
+@media (max-width: 600px) {
+
+    .final-contenido {
+        transform: translateY(0);
+        width: 100%;
+    }
+
+}
