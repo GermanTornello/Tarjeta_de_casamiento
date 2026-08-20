@@ -2191,3 +2191,18 @@ MENU PREMIUM
     background: #b58b54;
     color: white;
 }
+
+/* =====================================
+   AJUSTE FINAL - COMPUTADORA
+===================================== */
+
+@media (min-width: 769px) {
+
+    .final {
+        margin-top: 0 !important;
+        min-height: 70vh;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+}
