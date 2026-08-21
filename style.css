@@ -17,22 +17,18 @@ body{
 HERO
 =======================*/
 
-.hero{
+.hero {
+    position: relative;
+    height: 100dvh;
 
-    position:relative;
+    background: #ead9c5;
 
-    height:100vh;
+    display: none;
 
-    background:#ead9c5;
+    justify-content: center;
+    align-items: center;
 
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    overflow:hidden;
-
+    overflow: hidden;
 }
 
 /* cuando tengas la foto */
@@ -1069,8 +1065,8 @@ FINAL
 @media (max-width: 768px) {
 
     .final {
-    margin-top: -80px;
-    padding-top: 60px;
+    margin-top: -200px;
+    padding-top: 20px;
 }
 
     .final-contenido {
@@ -2006,7 +2002,7 @@ MENU PREMIUM
     z-index: 2;
 
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
 
     display: flex;
     flex-direction: column;
