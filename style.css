@@ -1955,7 +1955,7 @@ MENU PREMIUM
     position: fixed;
     inset: 0;
 
-    background: url("img/fondo-intro.jpg") center center / cover no-repeat;
+    background: #ead9c5;
 
     display: flex;
     justify-content: center;
@@ -1965,7 +1965,21 @@ MENU PREMIUM
     overflow: hidden;
 }
 
+/* MISMO FILTRO QUE "NOS CASAMOS" */
 #intro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: url("img/fondo-intro.jpg") center center / cover no-repeat;
+
+    opacity: .35;
+
+    z-index: 0;
+}
+
+/* MISMO OVERLAY QUE "NOS CASAMOS" */
+#intro::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -1976,6 +1990,11 @@ MENU PREMIUM
     );
 
     z-index: 1;
+}
+
+.intro-card {
+    position: relative;
+    z-index: 2;
 }
 
 /* ======================
