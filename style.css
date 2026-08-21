@@ -1069,9 +1069,9 @@ FINAL
 @media (max-width: 768px) {
 
     .final {
-        margin-top: -200px;
-        padding-top: 20px;
-    }
+    margin-top: -80px;
+    padding-top: 60px;
+}
 
     .final-contenido {
         transform: translateY(0);
