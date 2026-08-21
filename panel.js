@@ -1,4 +1,14 @@
 // =====================================
+// SEGURIDAD
+// =====================================
+
+const token = sessionStorage.getItem("admin_token");
+
+if (!token) {
+    window.location.href = "admin.html";
+}
+
+// =====================================
 // CARGAR PANEL
 // =====================================
 
@@ -13,8 +23,13 @@ async function cargar() {
         // ==============================
 
         const stats = await fetch(
-            "https://tarjetadecasamiento-production.up.railway.app/estadisticas"
-        );
+    "https://tarjetadecasamiento-production.up.railway.app/estadisticas",
+    {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+);
 
         const datos = await stats.json();
 
@@ -31,9 +46,14 @@ async function cargar() {
         // OBTENER FAMILIAS
         // ==============================
 
-        const respuesta = await fetch(
-            "https://tarjetadecasamiento-production.up.railway.app/admin"
-        );
+       const respuesta = await fetch(
+    "https://tarjetadecasamiento-production.up.railway.app/admin",
+    {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+);
 
         const familias = await respuesta.json();
 
@@ -491,8 +511,9 @@ async function guardarFamilia() {
                 method: "POST",
 
                 headers: {
-                    "Content-Type": "application/json"
-                },
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${token}`
+},
 
                 body: JSON.stringify({
 
@@ -616,8 +637,9 @@ async function editarFamilia(id) {
                 method: "PUT",
 
                 headers: {
-                    "Content-Type": "application/json"
-                },
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${token}`
+},
 
                 body: JSON.stringify({
 
@@ -697,13 +719,17 @@ async function eliminarFamilia(id) {
     try {
 
         const respuesta = await fetch(
-            `https://tarjetadecasamiento-production.up.railway.app/eliminar_familia/${id}`,
-            {
+    `https://tarjetadecasamiento-production.up.railway.app/eliminar_familia/${id}`,
+    {
 
-                method: "DELETE"
+        method: "DELETE",
 
-            }
-        );
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+
+    }
+);
 
 
         const datos = await respuesta.json();
@@ -808,8 +834,9 @@ async function editarInvitado(id) {
                 method: "PUT",
 
                 headers: {
-                    "Content-Type": "application/json"
-                },
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${token}`
+},
 
                 body: JSON.stringify({
 
@@ -902,13 +929,17 @@ async function eliminarInvitado(id) {
     try {
 
         const respuesta = await fetch(
-            `https://tarjetadecasamiento-production.up.railway.app/eliminar_invitado/${id}`,
-            {
+    `https://tarjetadecasamiento-production.up.railway.app/eliminar_invitado/${id}`,
+    {
 
-                method: "DELETE"
+        method: "DELETE",
 
-            }
-        );
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+
+    }
+);
 
 
         const datos = await respuesta.json();
@@ -966,8 +997,9 @@ async function resetearConfirmaciones() {
             {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
-                }
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${token}`
+}
             }
         );
 

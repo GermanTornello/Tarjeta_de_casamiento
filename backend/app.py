@@ -19,7 +19,7 @@ CORS(
     app,
     origins=["https://germantornello.github.io"],
     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type"]
+    allow_headers=["Content-Type", "Authorization"]
 )
 
 # Obtener la URL de la base de datos desde Railway
@@ -44,7 +44,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # La contraseña se obtiene desde las variables de entorno
 app.config["ADMIN_PASSWORD"] = os.getenv("ADMIN_PASSWORD")
-
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 db.init_app(app)
 

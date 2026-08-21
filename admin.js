@@ -17,7 +17,12 @@ async function login() {
         }
     );
 
+    const datos = await respuesta.json();
+
     if (respuesta.ok) {
+
+        // Guardar el token para usarlo en el panel
+        sessionStorage.setItem("admin_token", datos.token);
 
         window.location.href = "panel.html";
 
