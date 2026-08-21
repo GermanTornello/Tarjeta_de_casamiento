@@ -1,4 +1,3 @@
-```python
 from flask import Blueprint, request, jsonify, current_app
 from itsdangerous import URLSafeTimedSerializer
 from conexion import db
