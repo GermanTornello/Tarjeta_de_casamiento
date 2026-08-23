@@ -2205,3 +2205,9 @@ MENU PREMIUM
     background: #b58b54;
     color: white;
 }
+
+/* CORRECCIÓN MENSAJE FINAL */
+.final-contenido {
+    position: relative;
+    z-index: 10;
+}
