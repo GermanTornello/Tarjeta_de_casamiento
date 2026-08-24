@@ -2215,14 +2215,14 @@ MENU PREMIUM
 .final-principal .final-contenido {
     position: relative;
     z-index: 10;
-    transform: translateY(-80px);
+    transform: translateY(-180px);
 }
 
 /* CELULAR */
 @media (max-width: 768px) {
 
     .final-principal .final-contenido {
-        transform: translateY(-80px);
+        transform: translateY(-180px);
     }
 
 }
