@@ -2207,3 +2207,22 @@ MENU PREMIUM
     position: relative;
     z-index: 10;
 }
+
+/* ================================
+   POSICIÓN FINAL - PÁGINA PRINCIPAL
+================================ */
+
+.final-principal .final-contenido {
+    position: relative;
+    z-index: 10;
+    transform: translateY(-80px);
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+
+    .final-principal .final-contenido {
+        transform: translateY(-80px);
+    }
+
+}
