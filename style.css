@@ -478,18 +478,21 @@ BOTÓN CONTINUAR
 
 .card-tiempo span {
     font-family: 'Cormorant Garamond', serif;
-
     font-size: 82px;
-
     line-height: 1;
-
     color: #55565b;
-
     font-weight: 500;
-
     z-index: 1;
-}
 
+    /* Hace que todos los números ocupen el mismo ancho */
+    font-variant-numeric: lining-nums tabular-nums;
+    font-feature-settings: "lnum", "tnum";
+
+    /* Evita diferencias de alineación entre dígitos */
+    display: block;
+    width: 110px;
+    text-align: center;
+}
 
 /* ======================
    TEXTO
