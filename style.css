@@ -2229,3 +2229,62 @@ MENU PREMIUM
     }
 
 }
+
+/* ===== CORRECCIÓN DEFINITIVA DE BORDES BLANCOS EN CELULAR ===== */
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+section,
+header,
+main,
+footer,
+div {
+    max-width: 100%;
+}
+
+/* Evita que elementos con ancho de viewport generen
+   un borde/desborde horizontal */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: hidden !important;
+    }
+
+    .container,
+    .section,
+    .hero,
+    .intro,
+    .invitacion {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
