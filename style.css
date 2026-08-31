@@ -2231,7 +2231,7 @@ MENU PREMIUM
 }
 
 /* =========================================
-   CORRECCIÓN DEFINITIVA - BORDE BLANCO CELULAR
+   CORRECCIÓN DEFINITIVA - VIEWPORT CELULAR
 ========================================= */
 
 html {
@@ -2240,7 +2240,6 @@ html {
     width: 100%;
     min-height: 100%;
     background: #f7f3ed;
-    overflow-x: hidden;
 }
 
 body {
@@ -2248,62 +2247,64 @@ body {
     padding: 0;
     width: 100%;
     min-height: 100%;
-    background: #f7f3ed;
     overflow-x: hidden;
-}
-
-/* INTRO */
-#intro {
-    width: 100%;
-    height: 100svh;
-    min-height: 100svh;
-    max-height: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    background: #f7f3ed;
 }
 
 /* HERO */
 .hero {
     width: 100%;
-    height: 100svh;
     min-height: 100svh;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    height: 100svh;
 }
 
-/* Evita que las secciones de pantalla completa
-   dejen espacios visibles */
-@media (max-width: 768px) {
+/* INTRO */
+#intro {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+}
 
-    #intro,
-    .hero {
-        height: 100svh;
-        min-height: 100svh;
-        max-height: 100svh;
-    }
+/* Contenido del intro */
+.intro-card {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+/* Evita que el fondo blanco aparezca al hacer overscroll */
+html,
+body {
+    overscroll-behavior-y: none;
+}
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 768px) {
 
     html,
     body {
         width: 100%;
-        min-height: 100%;
-        background: #f7f3ed;
+        min-width: 100%;
         overflow-x: hidden;
     }
 
-    /* Las secciones principales continúan
-       inmediatamente después de la anterior */
-    .bienvenidos,
-    .contador,
-    .ceremonia,
-    .vestimenta,
-    .regalos,
-    .galeria,
-    .confirmar,
-    .final,
-    .confirmacion {
-        width: 100%;
-        margin-top: 0;
+    .hero {
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+    #intro {
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+    .intro-card {
+        height: 100%;
+        min-height: 100%;
     }
 }
