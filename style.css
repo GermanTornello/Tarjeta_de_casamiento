@@ -2231,31 +2231,28 @@ MENU PREMIUM
 }
 
 /* =========================================
-   CORRECCIÓN DEFINITIVA - VIEWPORT CELULAR
+   CORRECCIÓN FINAL DEL VIEWPORT
 ========================================= */
 
-html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100%;
-    background: #f7f3ed;
-}
-
+html,
 body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100%;
     overflow-x: hidden;
+}
+
+body {
     background: #f7f3ed;
 }
 
-/* HERO */
+/* PORTADA */
 .hero {
+    position: relative;
     width: 100%;
-    min-height: 100svh;
-    height: 100svh;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 /* INTRO */
@@ -2263,21 +2260,9 @@ body {
     position: fixed;
     inset: 0;
     width: 100%;
-    height: 100svh;
-    min-height: 100svh;
-}
-
-/* Contenido del intro */
-.intro-card {
-    width: 100%;
-    height: 100%;
-    min-height: 100%;
-}
-
-/* Evita que el fondo blanco aparezca al hacer overscroll */
-html,
-body {
-    overscroll-behavior-y: none;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 /* =========================================
@@ -2286,25 +2271,14 @@ body {
 
 @media (max-width: 768px) {
 
-    html,
-    body {
-        width: 100%;
-        min-width: 100%;
-        overflow-x: hidden;
-    }
-
     .hero {
-        height: 100svh;
-        min-height: 100svh;
+        height: 100vh;
+        min-height: 100vh;
     }
 
     #intro {
-        height: 100svh;
-        min-height: 100svh;
+        height: 100vh;
+        min-height: 100vh;
     }
 
-    .intro-card {
-        height: 100%;
-        min-height: 100%;
-    }
 }
