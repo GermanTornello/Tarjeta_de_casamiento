@@ -6,15 +6,11 @@
 
 html{
     scroll-behavior:smooth;
-    background:#f7f3ed;
-    overscroll-behavior-y:none;
 }
 
 body{
     font-family:'Poppins',sans-serif;
     overflow-x:hidden;
-    background:#f7f3ed;
-    overscroll-behavior-y:none;
 }
 
 /*======================
