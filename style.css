@@ -13,6 +13,11 @@ body{
     overflow-x:hidden;
 }
 
+html,
+body{
+    background:#f7f3ed;
+}
+
 /*======================
 HERO
 =======================*/
@@ -2235,6 +2240,8 @@ MENU PREMIUM
     z-index: 999999;
 
     overflow: hidden;
+
+    overscroll-behavior:none;
 }
 
 /* FOTO DE FONDO */
