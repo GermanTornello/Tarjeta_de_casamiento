@@ -1,3 +1,28 @@
+/* =========================================
+   ALTURA REAL DEL VIEWPORT EN CELULAR
+========================================= */
+
+function ajustarAlturaViewport() {
+    const altura = window.visualViewport
+        ? window.visualViewport.height
+        : window.innerHeight;
+
+    document.documentElement.style.setProperty(
+        '--altura-viewport',
+        `${altura}px`
+    );
+}
+
+ajustarAlturaViewport();
+
+window.addEventListener('resize', ajustarAlturaViewport);
+
+if (window.visualViewport) {
+    window.visualViewport.addEventListener(
+        'resize',
+        ajustarAlturaViewport
+    );
+}
 // ==============================
 // API
 // ==============================
