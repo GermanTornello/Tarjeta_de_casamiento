@@ -2174,10 +2174,14 @@ MENU PREMIUM
    DOBLE BORDE - CONFIRMAR ASISTENCIA
 ================================ */
 
+/* ================================
+   DOBLE BORDE - CONFIRMAR ASISTENCIA
+================================ */
+
 .confirmacion .marco {
     border: 1px solid #d8c19d;
-    outline: 1px solid #d8c19d;
-    outline-offset: 8px;
+    outline: none;
+    outline-offset: 0;
 }
 
 .btn-resetear {
