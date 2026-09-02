@@ -17,7 +17,11 @@ def inicio():
 
 CORS(
     app,
-    origins=["https://germantornello.github.io"],
+    origins=[
+        "https://germantornello.github.io",
+        "https://gisellaymaciel.com.ar",
+        "https://www.gisellaymaciel.com.ar"
+    ],
     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["Content-Type", "Authorization"]
 )
