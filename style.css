@@ -2177,7 +2177,7 @@ MENU PREMIUM
 .confirmacion .marco {
     border: 1px solid #d8c19d;
     outline: 1px solid #d8c19d;
-    outline-offset: 4px;
+    outline-offset: 2px;
 }
 
 .btn-resetear {
